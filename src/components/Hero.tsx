@@ -1,96 +1,75 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center">
-      <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          
-          {/* LEFT CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Hi, I’m <span className="text-gray-400">Satyam Kumar</span>
+    <section className="relative bg-black text-white py-20 overflow-hidden">
+      {/* subtle background glow */}
+      <div className="absolute inset-0">
+        <div className="absolute top-[-30%] left-1/2 h-[360px] w-[360px] -translate-x-1/2 bg-white/5 blur-[120px]" />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center"
+        >
+          {/* LEFT */}
+          <div>
+            <p className="text-xs uppercase tracking-widest text-gray-500 mb-3">
+              Full Stack Engineer
+            </p>
+
+            <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-5">
+              Building reliable,
+              <br />
+              <span className="text-gray-400">
+                production-ready web systems
+              </span>
             </h1>
 
-            <p className="text-xl text-gray-300 mb-4">
-              Full Stack Developer
+            <p className="text-base text-gray-400 max-w-xl mb-7 leading-relaxed">
+              I’m <span className="text-gray-200">Satyam Kumar</span>, a full stack
+              developer with a backend-first mindset, focused on scalable APIs,
+              clean architecture, and modern web platforms using Go, Next.js,
+              and DevOps tooling.
             </p>
 
-            <p className="text-gray-400 max-w-xl leading-relaxed mb-8">
-              I design and build scalable, high-performance web applications
-              using <strong>Go</strong>, <strong>MERN</strong>, <strong>Next.js</strong>,
-              <strong>Rust</strong>, <strong>Web3</strong>, <strong>DevOps</strong> and
-              <strong> Generative AI</strong>.  
-              I enjoy solving real-world problems and turning ideas into
-              production-ready systems.
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+              <a
+                href="#projects"
+                className="w-full sm:w-auto text-center px-6 py-3 text-sm font-medium rounded-lg bg-white text-black hover:bg-gray-200 transition"
+              >
+                Selected Work
+              </a>
 
-            {/* SKILLS TAGS */}
-            <div className="flex flex-wrap gap-3 mb-8">
-              {[
-                "GoLang",
-                "Next.js",
-                "MERN",
-                "Rust",
-                "Web3",
-                "DevOps",
-                "Gen AI",
-                "C++",
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-4 py-2 text-sm bg-gray-900 border border-gray-800 rounded-full"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-
-            {/* ACTION BUTTONS */}
-            <div className="flex gap-4">
               <a
                 href="/resume.pdf"
                 download
-                className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-200 transition"
+                className="w-full sm:w-auto text-center px-6 py-3 text-sm font-medium rounded-lg border border-gray-700 hover:border-gray-400 hover:text-gray-200 transition"
               >
                 Download Resume
               </a>
-
-              <a
-                href="#projects"
-                className="px-6 py-3 border border-gray-700 rounded-lg hover:border-gray-400 transition"
-              >
-                View Projects
-              </a>
             </div>
-          </motion.div>
+          </div>
 
-          {/* RIGHT IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center md:justify-end"
-          >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border border-gray-800 bg-gray-900">
+          {/* RIGHT */}
+          <div className="flex justify-center lg:justify-end lg:-mr-4">
+            <div className="relative w-52 h-52 md:w-60 md:h-60 border border-gray-800">
               <Image
                 src="/profile.jpg"
                 alt="Satyam Kumar"
                 fill
-                className="object-cover"
+                className="object-cover grayscale hover:grayscale-0 transition duration-500"
                 priority
               />
             </div>
-          </motion.div>
-
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
