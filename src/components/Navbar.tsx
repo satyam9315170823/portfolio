@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="text-xl font-bold">
-          Satyam<span className="text-gray-400">.dev</span>
+          Satyam
         </a>
 
         {/* Desktop Links */}
