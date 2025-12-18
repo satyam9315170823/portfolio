@@ -38,14 +38,7 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Divider */}
-          <div className="w-full max-w-sm h-px bg-gray-800" />
-
-          {/* Text */}
-          <p className="text-gray-500 text-sm text-center">
-            © {new Date().getFullYear()} Satyam Kumar · Built with Next.js &
-            Tailwind CSS
-          </p>
+         
         </motion.div>
       </div>
     </footer>
