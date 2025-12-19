@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowRight, Download, Terminal, Database, Globe } from "lucide-react"; // npm i lucide-react
+import { ArrowRight, Download, Terminal, Database, Globe } from "lucide-react";
 
-// Animation Variants for staggering
+// Animation Variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -23,10 +23,9 @@ const itemVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-black text-white overflow-hidden selection:bg-white/20">
+    <section className="relative min-h-screen flex items-center bg-black text-white overflow-hidden selection:bg-white/20 py-20 lg:py-0">
       
       {/* --- BACKGROUND FX --- */}
-      
       {/* 1. Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       
@@ -38,24 +37,18 @@ export default function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          // Responsive Grid: Stacks on mobile, 2 columns on large screens
           className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center"
         >
           {/* --- LEFT CONTENT --- */}
-          <div className="flex flex-col justify-center">
+          {/* Responsive Alignment: Center on mobile, Start (Left) on Desktop */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
             
-            {/* Status Badge */}
-            <motion.div variants={itemVariants} className="mb-6 flex items-center space-x-2">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-              </span>
-              <span className="text-xs font-mono text-green-400 uppercase tracking-widest">
-                Available for New Projects
-              </span>
-            </motion.div>
-
             {/* Headline */}
-            <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+            <motion.h1 
+              variants={itemVariants} 
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]"
+            >
               Building reliable, <br />
               <span className="bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600 bg-clip-text text-transparent">
                 web systems.
@@ -63,18 +56,24 @@ export default function Hero() {
             </motion.h1>
 
             {/* Description */}
-            <motion.p variants={itemVariants} className="text-lg text-gray-400 max-w-xl mb-8 leading-relaxed">
+            <motion.p 
+              variants={itemVariants} 
+              className="text-base sm:text-lg text-gray-400 max-w-xl mb-8 leading-relaxed"
+            >
               I’m <strong className="text-white">Satyam Kumar</strong>. I engineer scalable APIs and clean architecture using 
-              <span className="inline-flex items-center mx-1 text-blue-400"><Database className="w-3 h-3 mr-1"/>Go</span>, 
-              <span className="inline-flex items-center mx-1 text-white"><Globe className="w-3 h-3 mr-1"/>Next.js</span>, and 
-              <span className="inline-flex items-center mx-1 text-orange-400"><Terminal className="w-3 h-3 mr-1"/>DevOps</span>.
+              <span className="inline-flex items-center mx-1 text-blue-400 whitespace-nowrap"><Database className="w-3 h-3 mr-1"/>Go</span>, 
+              <span className="inline-flex items-center mx-1 text-white whitespace-nowrap"><Globe className="w-3 h-3 mr-1"/>Next.js</span>, and 
+              <span className="inline-flex items-center mx-1 text-orange-400 whitespace-nowrap"><Terminal className="w-3 h-3 mr-1"/>DevOps</span>.
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+            <motion.div 
+              variants={itemVariants} 
+              className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+            >
               <a
                 href="#projects"
-                className="group relative inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-black bg-white rounded-full overflow-hidden transition-transform active:scale-95 hover:bg-gray-100"
+                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-black bg-white rounded-full overflow-hidden transition-transform active:scale-95 hover:bg-gray-100"
               >
                 <span>View Selected Work</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -83,7 +82,7 @@ export default function Hero() {
               <a
                 href="/resume.pdf"
                 download
-                className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-white border border-gray-800 rounded-full hover:bg-gray-900 hover:border-gray-600 transition-colors active:scale-95"
+                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-white border border-gray-800 rounded-full hover:bg-gray-900 hover:border-gray-600 transition-colors active:scale-95"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Resume
@@ -92,10 +91,13 @@ export default function Hero() {
           </div>
 
           {/* --- RIGHT VISUAL --- */}
-          <motion.div variants={itemVariants} className="relative flex justify-center lg:justify-end">
+          <motion.div 
+            variants={itemVariants} 
+            className="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-8 lg:mb-0"
+          >
             
-            {/* The Image Container */}
-            <div className="relative w-72 h-72 md:w-96 md:h-96 group">
+            {/* The Image Container - Responsive Sizing */}
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 group">
               
               {/* Abstract decorative circles behind */}
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 blur-2xl group-hover:opacity-40 transition duration-1000"></div>
@@ -112,10 +114,10 @@ export default function Hero() {
                 
                 {/* Tech overlay at bottom of image */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
-                    <div className="flex gap-3 justify-center">
-                        <div className="bg-gray-800/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] text-gray-300 border border-gray-700">GO</div>
-                        <div className="bg-gray-800/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] text-gray-300 border border-gray-700">NEXT</div>
-                        <div className="bg-gray-800/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] text-gray-300 border border-gray-700">DOCKER</div>
+                    <div className="flex gap-2 sm:gap-3 justify-center">
+                        <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">GO</div>
+                        <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">NEXT</div>
+                        <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">DOCKER</div>
                     </div>
                 </div>
               </div>
