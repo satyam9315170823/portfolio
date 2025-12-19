@@ -13,7 +13,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-black/60 backdrop-blur-xl border-b border-white/10">
+    <nav className="sticky top-0 z-50 bg-black/60 backdrop-blur-xl ">
       <div className="max-w-6xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         
         {/* Logo */}
