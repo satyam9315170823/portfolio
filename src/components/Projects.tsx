@@ -247,26 +247,29 @@ export default function Projects() {
         </div>
 
         {/* ================= FILTER TABS ================= */}
-        <div className="flex flex-wrap items-center gap-2 mb-12">
-          <span className="text-gray-500 text-sm font-medium mr-2">
-           
+        {/* Changed layout: Stack vertically on mobile (flex-col), row on desktop (md:flex-row) */}
+        <div className="flex flex-col md:flex-row md:items-center gap-4 mb-12">
+          <span className="text-gray-500 text-sm font-medium whitespace-nowrap">
+            Filter by:
           </span>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`
-                px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 border
-                ${
-                  active === cat
-                    ? "bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.3)]"
-                    : "bg-transparent text-gray-400 border-gray-800 hover:border-gray-600 hover:text-gray-200"
-                }
-              `}
-            >
-              {cat}
-            </button>
-          ))}
+          <div className="flex flex-wrap gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActive(cat)}
+                className={`
+                  px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 border
+                  ${
+                    active === cat
+                      ? "bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                      : "bg-transparent text-gray-400 border-gray-800 hover:border-gray-600 hover:text-gray-200"
+                  }
+                `}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* ================= OTHER PROJECTS ================= */}
