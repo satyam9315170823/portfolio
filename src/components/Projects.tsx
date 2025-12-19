@@ -25,141 +25,159 @@ type Project = {
 };
 
 const projects: Project[] = [
+  // ===== MAIN / FEATURED PROJECTS =====
   {
-    title: "SaaS Platform (Featured)",
+    title: "SaaS Platform",
     description:
-      "Production-grade SaaS platform with authentication, payments, dashboards, and scalable backend architecture.",
+      "Production-grade SaaS platform with authentication, payments, RBAC, dashboards, and scalable backend architecture.",
     category: "Next.js",
     tech: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Docker"],
-    live: "https://saas-next.vercel.app",
-    repo: "https://github.com/yourname/next-saas",
+    live: "#",
+    repo: "#",
     featured: true,
   },
   {
-    title: "MERN Task Manager",
+    title: "Distributed Task Manager",
     description:
-      "Full-stack MERN application with JWT auth, role-based access, and real-time updates.",
+      "High-scale MERN application with JWT auth, background jobs, caching, and real-time updates.",
     category: "MERN",
-    tech: ["MongoDB", "Express", "React", "Node.js"],
-    live: "https://mern-task.vercel.app",
-    repo: "https://github.com/yourname/mern-task",
+    tech: ["MongoDB", "Express", "React", "Node.js", "Redis"],
+    live: "#",
+    repo: "#",
+    featured: true,
   },
+  {
+    title: "GenAI RAG System",
+    description:
+      "End-to-end RAG pipeline with embeddings, vector search, prompt orchestration, and observability.",
+    category: "GenAI",
+    tech: ["Next.js", "LLMs", "Vector DB", "LangChain"],
+    live: "#",
+    repo: "#",
+    featured: true,
+  },
+
+  // ===== OTHER PROJECTS =====
   {
     title: "GoLang REST API",
     description:
-      "High-performance REST API built in Go with PostgreSQL, JWT auth, and clean architecture.",
+      "High-performance REST API with clean architecture, JWT auth, and PostgreSQL.",
     category: "GoLang",
     tech: ["Go", "PostgreSQL", "JWT", "Docker"],
-    live: "https://golang-api.onrender.com",
-    repo: "https://github.com/yourname/golang-api",
+    live: "#",
+    repo: "#",
   },
   {
     title: "Web3 Voting DApp",
     description:
-      "Decentralized voting system using Solidity smart contracts and Ethereum blockchain.",
+      "Decentralized voting application using Solidity smart contracts.",
     category: "Web3",
     tech: ["Solidity", "Ethereum", "Ethers.js", "Next.js"],
-    live: "https://web3-voting.vercel.app",
-    repo: "https://github.com/yourname/web3-voting",
+    live: "#",
+    repo: "#",
   },
   {
-    title: "Gen AI Chat Assistant",
+    title: "AI Chat Assistant",
     description:
-      "LLM-powered chat application with embeddings, vector search, and RAG pipeline.",
+      "LLM-powered chat app with context memory and embeddings.",
     category: "GenAI",
-    tech: ["Next.js", "LLMs", "Vector DB", "Gen AI"],
-    live: "https://genai-chat.vercel.app",
-    repo: "https://github.com/yourname/genai-chat",
+    tech: ["LLMs", "Vector DB", "Next.js"],
+    live: "#",
+    repo: "#",
   },
 ];
 
 export default function Projects() {
   const [active, setActive] = useState<Category>("All");
 
-  const featuredProject = projects.find((p) => p.featured);
-  const filteredProjects =
+  const mainProjects = projects.filter((p) => p.featured);
+  const otherProjects =
     active === "All"
       ? projects.filter((p) => !p.featured)
-      : projects.filter((p) => p.category === active && !p.featured);
+      : projects.filter(
+          (p) => !p.featured && p.category === active
+        );
 
   return (
-    <section id="projects" className="py-28 bg-gray-950">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="projects" className="py-24 bg-gray-950">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-14"
+          className="mb-16"
         >
-          <h2 className="text-4xl font-bold mb-3">Projects</h2>
+          <h2 className="text-4xl font-bold mb-4">Projects</h2>
           <p className="text-gray-400 max-w-2xl">
-            Selected projects demonstrating system design, scalability,
-            and real-world problem solving.
+            A selection of complex, real-world projects focused on scalability,
+            system design, and modern engineering practices.
           </p>
         </motion.div>
 
-        {/* Featured Project */}
-        {featuredProject && active === "All" && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="
-              mb-20
-              bg-linear-to-br from-gray-900 to-gray-950
-              border border-gray-800
-              rounded-3xl
-              p-8
-            "
-          >
-            <p className="text-sm uppercase tracking-wide text-gray-500 mb-2">
-              Featured Project
-            </p>
+        {/* ================= MAIN PROJECTS ================= */}
+        <div className="mb-24">
+          <h3 className="text-2xl font-semibold mb-8">
+            Featured Projects
+          </h3>
 
-            <h3 className="text-2xl font-semibold mb-3">
-              {featuredProject.title}
-            </h3>
-
-            <p className="text-gray-400 max-w-3xl mb-6">
-              {featuredProject.description}
-            </p>
-
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {featuredProject.tech.map((t) => (
-                <span
-                  key={t}
-                  className="px-3 py-1.5 text-sm rounded-full bg-gray-800 border border-gray-700"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-
-            {/* Links */}
-            <div className="flex gap-6 text-sm">
-              <a
-                href={featuredProject.repo}
-                target="_blank"
-                className="text-gray-400 hover:text-white"
+          <div className="grid lg:grid-cols-3 gap-8">
+            {mainProjects.map((project) => (
+              <motion.div
+                key={project.title}
+                whileHover={{ y: -8 }}
+                className="
+                  relative
+                  bg-gradient-to-br from-gray-900 to-gray-950
+                  border border-gray-800
+                  rounded-3xl
+                  p-8
+                  hover:border-gray-600
+                  transition
+                "
               >
-                GitHub →
-              </a>
-              <a
-                href={featuredProject.live}
-                target="_blank"
-                className="text-gray-400 hover:text-white"
-              >
-                Live Demo →
-              </a>
-            </div>
-          </motion.div>
-        )}
+                <h4 className="text-xl font-semibold mb-3">
+                  {project.title}
+                </h4>
 
-        {/* Tabs */}
+                <p className="text-gray-400 mb-6">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1.5 text-xs rounded-full bg-gray-800 border border-gray-700"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-6 text-sm">
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    className="text-gray-400 hover:text-white"
+                  >
+                    GitHub →
+                  </a>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    className="text-gray-400 hover:text-white"
+                  >
+                    Live →
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* ================= FILTER TABS ================= */}
         <div className="flex flex-wrap gap-3 mb-12">
           {categories.map((cat) => (
             <button
@@ -177,22 +195,22 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Project Grid */}
+        {/* ================= OTHER PROJECTS ================= */}
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {filteredProjects.map((project) => (
+            {otherProjects.map((project) => (
               <motion.div
                 key={project.title}
                 whileHover={{ y: -6 }}
                 className="
-                  bg-linear-to-b from-gray-900 to-gray-950
+                  bg-gradient-to-b from-gray-900 to-gray-950
                   border border-gray-800
                   rounded-2xl
                   p-6
@@ -200,27 +218,25 @@ export default function Projects() {
                   transition
                 "
               >
-                <h3 className="text-xl font-semibold mb-2">
+                <h4 className="text-lg font-semibold mb-2">
                   {project.title}
-                </h3>
+                </h4>
 
                 <p className="text-gray-400 text-sm mb-5">
                   {project.description}
                 </p>
 
-                {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-5">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-3 py-1 text-xs rounded-full bg-gray-800 border border-gray-700 text-gray-300"
+                      className="px-3 py-1 text-xs rounded-full bg-gray-800 border border-gray-700"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
 
-                {/* Links */}
                 <div className="flex gap-4 text-sm">
                   <a
                     href={project.repo}
@@ -234,7 +250,7 @@ export default function Projects() {
                     target="_blank"
                     className="text-gray-400 hover:text-white"
                   >
-                    Live Demo →
+                    Live →
                   </a>
                 </div>
               </motion.div>
