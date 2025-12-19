@@ -25,7 +25,7 @@ type Project = {
 };
 
 const projects: Project[] = [
-  // ===== MAIN / FEATURED PROJECTS =====
+  // ===== FEATURED PROJECTS =====
   {
     title: "SaaS Platform",
     description:
@@ -39,7 +39,7 @@ const projects: Project[] = [
   {
     title: "Distributed Task Manager",
     description:
-      "High-scale MERN application with JWT auth, background jobs, caching, and real-time updates.",
+      "High-scale MERN application with background jobs, caching, real-time updates, and role-based access control.",
     category: "MERN",
     tech: ["MongoDB", "Express", "React", "Node.js", "Redis"],
     live: "#",
@@ -61,7 +61,7 @@ const projects: Project[] = [
   {
     title: "GoLang REST API",
     description:
-      "High-performance REST API with clean architecture, JWT auth, and PostgreSQL.",
+      "High-performance REST API built in Go with clean architecture, JWT authentication, and PostgreSQL.",
     category: "GoLang",
     tech: ["Go", "PostgreSQL", "JWT", "Docker"],
     live: "#",
@@ -70,7 +70,7 @@ const projects: Project[] = [
   {
     title: "Web3 Voting DApp",
     description:
-      "Decentralized voting application using Solidity smart contracts.",
+      "Decentralized voting application using Solidity smart contracts on Ethereum.",
     category: "Web3",
     tech: ["Solidity", "Ethereum", "Ethers.js", "Next.js"],
     live: "#",
@@ -79,7 +79,7 @@ const projects: Project[] = [
   {
     title: "AI Chat Assistant",
     description:
-      "LLM-powered chat app with context memory and embeddings.",
+      "LLM-powered chat assistant with context memory and embeddings.",
     category: "GenAI",
     tech: ["LLMs", "Vector DB", "Next.js"],
     live: "#",
@@ -94,31 +94,38 @@ export default function Projects() {
   const otherProjects =
     active === "All"
       ? projects.filter((p) => !p.featured)
-      : projects.filter(
-          (p) => !p.featured && p.category === active
-        );
+      : projects.filter((p) => !p.featured && p.category === active);
 
   return (
-    <section id="projects" className="py-24 bg-gray-950">
+    <section
+      id="projects"
+      className="
+        relative py-28 overflow-hidden
+        bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
+        from-gray-900/40 via-gray-950 to-black
+      "
+    >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
+        {/* ================= HEADER ================= */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-20"
         >
-          <h2 className="text-4xl font-bold mb-4">Projects</h2>
-          <p className="text-gray-400 max-w-2xl">
-            A selection of complex, real-world projects focused on scalability,
-            system design, and modern engineering practices.
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            Projects
+          </h2>
+          <p className="text-gray-400 max-w-2xl leading-relaxed">
+            Carefully crafted projects focused on scalability, system design,
+            and real-world engineering challenges.
           </p>
         </motion.div>
 
-        {/* ================= MAIN PROJECTS ================= */}
+        {/* ================= FEATURED PROJECTS ================= */}
         <div className="mb-24">
-          <h3 className="text-2xl font-semibold mb-8">
+          <h3 className="text-2xl font-semibold mb-10">
             Featured Projects
           </h3>
 
@@ -126,22 +133,31 @@ export default function Projects() {
             {mainProjects.map((project) => (
               <motion.div
                 key={project.title}
-                whileHover={{ y: -8 }}
+                whileHover={{ y: -8, scale: 1.01 }}
                 className="
                   relative
-                  bg-gradient-to-br from-gray-900 to-gray-950
-                  border border-gray-800
+                  bg-gradient-to-br from-gray-900/80 to-gray-950/80
+                  backdrop-blur-xl
+                  border border-gray-800/60
                   rounded-3xl
                   p-8
-                  hover:border-gray-600
-                  transition
+                  shadow-[0_0_0_1px_rgba(255,255,255,0.04)]
+                  hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.15)]
+                  transition-all duration-300
                 "
               >
-                <h4 className="text-xl font-semibold mb-3">
+                {/* Glow */}
+                <div className="
+                  absolute inset-0 -z-10
+                  bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10
+                  blur-2xl opacity-60
+                " />
+
+                <h4 className="text-xl font-semibold mb-3 tracking-tight">
                   {project.title}
                 </h4>
 
-                <p className="text-gray-400 mb-6">
+                <p className="text-gray-400 leading-relaxed mb-6">
                   {project.description}
                 </p>
 
@@ -149,7 +165,11 @@ export default function Projects() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-3 py-1.5 text-xs rounded-full bg-gray-800 border border-gray-700"
+                      className="
+                        px-3 py-1.5 text-xs rounded-full
+                        bg-white/5 border border-white/10
+                        text-gray-300 backdrop-blur-md
+                      "
                     >
                       {t}
                     </span>
@@ -160,14 +180,14 @@ export default function Projects() {
                   <a
                     href={project.repo}
                     target="_blank"
-                    className="text-gray-400 hover:text-white"
+                    className="text-gray-400 hover:text-white transition hover:underline underline-offset-4"
                   >
                     GitHub →
                   </a>
                   <a
                     href={project.live}
                     target="_blank"
-                    className="text-gray-400 hover:text-white"
+                    className="text-gray-400 hover:text-white transition hover:underline underline-offset-4"
                   >
                     Live →
                   </a>
@@ -177,17 +197,20 @@ export default function Projects() {
           </div>
         </div>
 
+        {/* Divider */}
+        <div className="my-20 h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
+
         {/* ================= FILTER TABS ================= */}
         <div className="flex flex-wrap gap-3 mb-12">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`px-5 py-2 rounded-full text-sm border transition
+              className={`px-5 py-2 rounded-full text-sm transition-all duration-300
                 ${
                   active === cat
-                    ? "bg-white text-black border-white"
-                    : "bg-gray-900 text-gray-300 border-gray-800 hover:border-gray-600"
+                    ? "bg-white text-black shadow-md"
+                    : "bg-white/5 text-gray-300 hover:bg-white/10"
                 }`}
             >
               {cat}
@@ -210,12 +233,14 @@ export default function Projects() {
                 key={project.title}
                 whileHover={{ y: -6 }}
                 className="
-                  bg-gradient-to-b from-gray-900 to-gray-950
-                  border border-gray-800
+                  bg-gradient-to-b from-gray-900/70 to-gray-950/70
+                  backdrop-blur-lg
+                  border border-gray-800/60
                   rounded-2xl
                   p-6
                   hover:border-gray-600
-                  transition
+                  hover:shadow-lg
+                  transition-all duration-300
                 "
               >
                 <h4 className="text-lg font-semibold mb-2">
@@ -230,7 +255,11 @@ export default function Projects() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-3 py-1 text-xs rounded-full bg-gray-800 border border-gray-700"
+                      className="
+                        px-3 py-1 text-xs rounded-full
+                        bg-white/5 border border-white/10
+                        text-gray-300
+                      "
                     >
                       {t}
                     </span>
@@ -241,14 +270,14 @@ export default function Projects() {
                   <a
                     href={project.repo}
                     target="_blank"
-                    className="text-gray-400 hover:text-white"
+                    className="text-gray-400 hover:text-white transition hover:underline underline-offset-4"
                   >
                     GitHub →
                   </a>
                   <a
                     href={project.live}
                     target="_blank"
-                    className="text-gray-400 hover:text-white"
+                    className="text-gray-400 hover:text-white transition hover:underline underline-offset-4"
                   >
                     Live →
                   </a>
