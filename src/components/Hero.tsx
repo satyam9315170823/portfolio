@@ -1,11 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // 1. Added Variants import
 import Image from "next/image";
 import { ArrowRight, Download, Terminal, Database, Globe } from "lucide-react";
 
 // Animation Variants
-const containerVariants = {
+// 2. Added type annotation to containerVariants
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -16,9 +17,17 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+// 3. Added type annotation to itemVariants (Fixes the 'ease' error)
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.5, 
+      ease: "easeOut" 
+    } 
+  },
 };
 
 export default function Hero() {
