@@ -120,7 +120,7 @@ export default function Contact() {
           >
             <div className="space-y-2 mb-2 md:mb-4 text-center lg:text-left">
                 <h3 className="text-xl md:text-2xl font-semibold text-white">Contact Details</h3>
-                <p className="text-sm text-gray-400">Click the copy icon to copy details.</p>
+               
             </div>
 
             {contactInfo.map((item) => (
@@ -159,10 +159,7 @@ export default function Contact() {
             ))}
 
             {/* Quote Card - Hidden on very small screens, visible on tablet+ */}
-            <div className="hidden md:block p-6 md:p-8 rounded-3xl bg-gradient-to-br from-indigo-900/20 to-purple-900/20 border border-white/5 mt-4">
-                <p className="text-indigo-200 italic text-sm md:text-base">"Great things in business are never done by one person. They're done by a team of people."</p>
-                <p className="text-indigo-400/60 mt-2 text-xs md:text-sm">— Steve Jobs</p>
-            </div>
+          
           </motion.div>
 
           {/* Right Column: Form */}
