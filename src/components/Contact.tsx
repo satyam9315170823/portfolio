@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Send, Copy, Check } from "lucide-react";
+import { Mail, Phone, Send, Copy, Check, Loader2 } from "lucide-react";
 
 export default function Contact() {
   // State for form fields
@@ -12,6 +12,10 @@ export default function Contact() {
     message: "",
   });
 
+  // State for submission status
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState<"idle" | "success" | "error">("idle");
+  
   // State for copy feedback
   const [copied, setCopied] = useState<string | null>(null);
 
@@ -21,7 +25,7 @@ export default function Contact() {
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
       value: "satyamsingh9315170823@gmail.com",
-      display: "satyamsingh...gmail.com", // Truncated for mobile view aesthetics
+      display: "satyamsingh...gmail.com", 
     },
     {
       id: "phone",
@@ -38,11 +42,41 @@ export default function Contact() {
     setTimeout(() => setCopied(null), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your form submission logic here (e.g., Formspree, EmailJS)
-    console.log(formData);
-    alert("Message sent! (This is a demo)");
+    setIsSubmitting(true);
+    setSubmissionStatus("idle");
+
+    // 1. Create FormData object
+    const formPayload = new FormData();
+    // REPLACE WITH YOUR ACTUAL ACCESS KEY FROM WEB3FORMS
+    formPayload.append("access_key", "9eb2b58a-2a15-4f6e-bcb1-9c5d950c0269"); 
+    formPayload.append("name", formData.name);
+    formPayload.append("email", formData.email);
+    formPayload.append("message", formData.message);
+
+    try {
+      // 2. Send data to Web3Forms
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formPayload,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmissionStatus("success");
+        setFormData({ name: "", email: "", message: "" }); // Reset form
+      } else {
+        console.error("Error:", result);
+        setSubmissionStatus("error");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSubmissionStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -63,8 +97,7 @@ export default function Contact() {
             Let's Work <span className="text-indigo-500">Together</span>
           </h2>
           <p className="text-gray-400 max-w-lg mx-auto">
-            Have a project in mind or just want to say hi? I'm always open to
-            discussing new projects and creative ideas.
+            Have a project in mind? Send me a message and I'll get back to you shortly.
           </p>
         </motion.div>
 
@@ -111,7 +144,7 @@ export default function Contact() {
             ))}
           </motion.div>
 
-          {/* Right Column: Contact Form */}
+          {/* Right Column: Web3Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -127,6 +160,7 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name" // Important for Web3Forms
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-gray-600"
@@ -142,6 +176,7 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="email" // Important for Web3Forms
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder:text-gray-600"
@@ -156,6 +191,7 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message" // Important for Web3Forms
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -167,11 +203,30 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="group flex items-center justify-center gap-2 w-full bg-white text-black font-semibold py-4 rounded-xl hover:bg-gray-200 transition-all active:scale-[0.98]"
+                disabled={isSubmitting}
+                className="group flex items-center justify-center gap-2 w-full bg-white text-black font-semibold py-4 rounded-xl hover:bg-gray-200 transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
-                <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                {isSubmitting ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
+
+              {/* Status Messages */}
+              {submissionStatus === "success" && (
+                <p className="text-green-400 text-sm text-center mt-2 font-medium">
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </p>
+              )}
+              {submissionStatus === "error" && (
+                <p className="text-red-400 text-sm text-center mt-2 font-medium">
+                  ❌ Something went wrong. Please try again.
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
