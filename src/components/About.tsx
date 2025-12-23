@@ -52,7 +52,7 @@ const cardVariants = {
 
 export default function EngineeringApproach() {
   return (
-    <section id="about" className="relative py-20 md:py-22 bg-black overflow-hidden">
+    <section id="about" className="relative py-20 md:py-16 bg-black overflow-hidden">
       
       {/* Background Glow Effects */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-900/20 rounded-full blur-[128px]" />
