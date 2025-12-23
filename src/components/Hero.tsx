@@ -88,7 +88,7 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-black bg-white rounded-full overflow-hidden transition-transform active:scale-95 hover:bg-gray-100"
+                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-black bg-white rounded-md overflow-hidden transition-transform active:scale-95 hover:bg-gray-100"
               >
                 <span>View Selected Work</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -97,7 +97,7 @@ export default function Hero() {
               <a
                 href="/resume.pdf"
                 download
-                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-white border border-gray-800 rounded-full hover:bg-gray-900 hover:border-gray-600 transition-colors active:scale-95"
+                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 text-sm font-semibold text-white border border-gray-800 rounded-md hover:bg-gray-900 hover:border-gray-600 transition-colors active:scale-95"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Resume
