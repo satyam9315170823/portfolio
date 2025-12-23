@@ -65,15 +65,48 @@ export default function Hero() {
             </motion.h1>
 
             {/* Description */}
-            <motion.p 
-              variants={itemVariants} 
-              className="text-base sm:text-lg text-gray-400 max-w-xl mb-8 leading-relaxed"
-            >
-              I’m <strong className="text-white">Satyam Kumar</strong>. I engineer scalable APIs and clean architecture using 
-              <span className="inline-flex items-center mx-1 text-blue-400 whitespace-nowrap"><Database className="w-3 h-3 mr-1"/>Go</span>, 
-              <span className="inline-flex items-center mx-1 text-white whitespace-nowrap"><Globe className="w-3 h-3 mr-1"/>Next.js</span>, and 
-              <span className="inline-flex items-center mx-1 text-orange-400 whitespace-nowrap"><Terminal className="w-3 h-3 mr-1"/>DevOps</span>.
-            </motion.p>
+          <motion.p
+  variants={itemVariants}
+  className="text-base sm:text-lg text-gray-400 max-w-xl mb-8 leading-relaxed"
+>
+  I’m <strong className="text-white">Satyam Kumar</strong>, a full-stack engineer who builds
+  production-grade systems across <span className="text-white">web, backend, blockchain, and AI</span>.
+  I work extensively with the
+  <span className="inline-flex items-center mx-1 text-green-400 whitespace-nowrap">
+    <Database className="w-3 h-3 mr-1" /> MERN
+  </span>
+  stack and
+  <span className="inline-flex items-center mx-1 text-white whitespace-nowrap">
+    <Globe className="w-3 h-3 mr-1" /> Next.js
+  </span>,
+  designing scalable APIs and clean architectures using
+  <span className="inline-flex items-center mx-1 text-blue-400 whitespace-nowrap">
+    <Terminal className="w-3 h-3 mr-1" /> Go
+  </span>,
+  <span className="inline-flex items-center mx-1 text-indigo-400 whitespace-nowrap">
+    TypeScript
+  </span>, and
+  <span className="inline-flex items-center mx-1 text-gray-300 whitespace-nowrap">
+    C++
+  </span>.
+  <br /><br />
+  I have strong experience in
+  <span className="inline-flex items-center mx-1 text-orange-400 whitespace-nowrap">
+    <Terminal className="w-3 h-3 mr-1" /> DevOps
+  </span>
+  workflows, containerization, and cloud deployments, and I build decentralized applications on
+  <span className="mx-1 text-purple-400">Ethereum</span> and
+  <span className="mx-1 text-teal-400">Solana</span>
+  using <span className="text-white">Solidity</span> and <span className="text-white">Rust</span>.
+  <br /><br />
+  On the AI side, I develop intelligent systems with
+  <span className="mx-1 text-pink-400">GenAI</span>,
+  <span className="mx-1 text-pink-400">LangChain</span>,
+  <span className="mx-1 text-pink-400">LangGraph</span>, and
+  <span className="mx-1 text-pink-400">MCP-based agent architectures</span>,
+  focusing on real-world automation, reasoning, and orchestration.
+</motion.p>
+
 
             {/* CTA Buttons */}
             <motion.div 
