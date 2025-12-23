@@ -31,8 +31,8 @@ export default function Contact() {
       id: "phone",
       icon: <Phone className="w-5 h-5" />,
       label: "Phone",
-      value: "93151710823",
-      display: "+91 93151 710823",
+      value: "(+91) 9315170823",
+      display: "+91 9315170823",
     },
   ];
 
