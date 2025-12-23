@@ -130,9 +130,9 @@ export default function Hero() {
                 {/* Tech overlay at bottom of image */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
                     <div className="flex gap-2 sm:gap-3 justify-center">
-                        <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">GoLang</div>
+                        <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">Go</div>
                         <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">MERN</div>
-                        <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">Kubernetes</div>
+                        <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">k8s</div>
                         <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">Nextjs</div>
                         <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">Web3</div>
                         <div className="bg-gray-800/80 backdrop-blur-md px-2 py-1 sm:px-3 rounded-full text-[9px] sm:text-[10px] text-gray-300 border border-gray-700">GenAi</div>
