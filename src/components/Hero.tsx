@@ -73,7 +73,7 @@ export default function Hero() {
   scalable web and backend systems with{" "}
   <span className="text-white">MERN</span>,{" "}
   <span className="text-white">Next.js</span>, and{" "}
-  <span className="text-white">Go</span>.
+  <span className="text-white">GoLang</span>.
   I ship production-ready platforms using{" "}
   <span className="text-white">DevOps</span>, and work on{" "}
   <span className="text-white">Web3</span> (Ethereum, Solana) and{" "}
