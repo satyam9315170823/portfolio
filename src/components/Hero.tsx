@@ -65,16 +65,19 @@ export default function Hero() {
             </motion.h1>
 
             {/* Description */}
-        <motion.p
+     <motion.p
   variants={itemVariants}
   className="text-base sm:text-lg text-gray-400 max-w-xl mb-8 leading-relaxed"
 >
   I’m <strong className="text-white">Satyam Kumar</strong>, a full-stack engineer building
-  scalable web platforms, backend systems, and decentralized applications.
-  I work with MERN and Next.js, design high-performance APIs in Go,
-  and ship production systems using modern DevOps practices.
-  My experience also spans Web3 (Ethereum, Solana), smart contracts,
-  and applied GenAI systems.
+  scalable web and backend systems with{" "}
+  <span className="text-white">MERN</span>,{" "}
+  <span className="text-white">Next.js</span>, and{" "}
+  <span className="text-white">Go</span>.
+  I ship production-ready platforms using{" "}
+  <span className="text-white">DevOps</span>, and work on{" "}
+  <span className="text-white">Web3</span> (Ethereum, Solana) and{" "}
+  <span className="text-white">GenAI</span>.
 </motion.p>
 
 
