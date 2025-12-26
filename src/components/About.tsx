@@ -59,7 +59,7 @@ export default function EngineeringApproach() {
       linear-gradient(to_bottom,#22c55e18_1px,transparent_1px)]
   bg-[size:28px_28px]
   [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]
-" />
+" >
 
       {/* Background Glow Effects */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-900/20 rounded-full blur-[128px]" />
