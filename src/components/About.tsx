@@ -52,8 +52,15 @@ const cardVariants = {
 
 export default function EngineeringApproach() {
   return (
-    <section id="about" className="relative py-20 md:py-16 bg-black overflow-hidden">
-      
+    <section id="about" className="relative py-20 md:py-16  overflow-hidden">
+      {/* Section Grid Background */}
+<div className="absolute inset-0 -z-10
+  bg-[linear-gradient(to_right,#9ca3af14_1px,transparent_1px),
+      linear-gradient(to_bottom,#22c55e18_1px,transparent_1px)]
+  bg-[size:28px_28px]
+  [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]
+" />
+
       {/* Background Glow Effects */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-900/20 rounded-full blur-[128px]" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-[128px]" />
@@ -123,6 +130,8 @@ export default function EngineeringApproach() {
           ))}
         </motion.div>
       </div>
+      </div>
+      
     </section>
   );
 }
