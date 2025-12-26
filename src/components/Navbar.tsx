@@ -22,17 +22,12 @@ export default function Navbar() {
 
   const { scrollY } = useScroll();
 
-  // Optimized Scroll Logic
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
-    
-    // Scrolled down (collapse)
     if (latest > previous && latest > 50) {
       setIsCompact(true);
-      setOpen(false); // Close mobile menu automatically
-    } 
-    // Scrolled up (expand)
-    else if (latest < previous) {
+      setOpen(false);
+    } else if (latest < previous) {
       setIsCompact(false);
     }
   });
@@ -41,14 +36,12 @@ export default function Navbar() {
     <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
       <motion.div
         layout
-        // This is the "magic" spring configuration for that premium feel
         transition={{ type: "spring", stiffness: 300, damping: 30, mass: 0.8 }}
         onMouseEnter={() => setIsCompact(false)}
         className="relative flex items-center rounded-full border border-white/10 bg-black/60 backdrop-blur-2xl shadow-2xl shadow-black/40 overflow-hidden"
-        style={{ height: 58 }} // Fixed height for consistency
+        style={{ height: 58 }}
       >
-        
-        {/* LOGO CONTAINER */}
+        {/* LOGO */}
         <motion.div 
           layout="position" 
           className="relative z-20 flex items-center px-6"
@@ -58,7 +51,7 @@ export default function Navbar() {
             </a>
         </motion.div>
 
-        {/* DESKTOP LINKS - AnimatePresence handles the smooth unmount */}
+        {/* DESKTOP LINKS */}
         <AnimatePresence mode="popLayout">
           {!isCompact && (
             <motion.div
@@ -66,7 +59,8 @@ export default function Navbar() {
               animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, x: -20, filter: "blur(10px)" }}
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              className="hidden md:flex items-center gap-1 pr-2"
+              // ADDED ml-8 HERE FOR SPACING
+              className="hidden md:flex items-center gap-1 pr-2 ml-8"
             >
               {links.map((link, index) => (
                 <a
@@ -120,7 +114,7 @@ export default function Navbar() {
         </div>
       </motion.div>
 
-      {/* MOBILE MENU DROPDOWN (Outside the main bar for cleaner layout) */}
+      {/* MOBILE MENU DROPDOWN */}
       <AnimatePresence>
         {open && !isCompact && (
           <motion.div
