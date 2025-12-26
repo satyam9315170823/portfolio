@@ -45,10 +45,8 @@ export default function RootLayout({
              Changed #80808012 to #ffffff10 for better visibility.
              If you want it even brighter, change #ffffff10 to #ffffff20 
           */}
-   <div className="absolute inset-0 animate-[gridMove_60s_linear_infinite]
-  bg-[linear-gradient(to_right,#9ca3af12_1px,transparent_1px),linear-gradient(to_bottom,#22c55e14_1px,transparent_1px)] 
-  bg-[size:24px_24px]" />
-
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:24px_24px]" />
+          
           {/* Top Blue Gradient Glow */}
           <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-blue-900/20 via-black/0 to-black/0 blur-[100px]" />
         </div>
@@ -60,4 +58,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+} 
