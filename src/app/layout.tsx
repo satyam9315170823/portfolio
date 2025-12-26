@@ -37,8 +37,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black text-gray-200"  suppressHydrationWarning >
-        {children}
+      <body className="bg-black text-gray-200 antialiased selection:bg-blue-500/30" suppressHydrationWarning>
+        
+        {/* ------------------ GLOBAL FIXED BACKGROUND ------------------ */}
+        <div className="fixed inset-0 -z-10 min-h-screen w-full bg-black">
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+          
+          {/* Top Blue Gradient Glow */}
+          <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-blue-900/20 via-black/0 to-black/0 blur-[100px]" />
+        </div>
+
+        {/* ------------------ PAGE CONTENT ------------------ */}
+        <main className="relative flex min-h-screen flex-col">
+          {children}
+        </main>
       </body>
     </html>
   );
