@@ -81,7 +81,7 @@ export default function Footer() {
         h-9 w-9 sm:h-11 sm:w-11     /* 🔽 smaller on mobile */
         rounded-full
         bg-gray-900/70
-       
+       mt-3
         text-gray-400
         hover:text-[rgb(var(--accent))]
         hover:border-[rgb(var(--accent))/60]
