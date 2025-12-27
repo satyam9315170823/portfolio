@@ -59,7 +59,7 @@ export default function Footer() {
   className="
     flex flex-row          /* horizontal on all screens */
     gap-2 sm:gap-4         /* tighter gap on mobile */
-    rounded-full
+    rounded-full mt-2
     px-3 py-2 sm:px-4 sm:py-3
     bg-black/60
     backdrop-blur-xl
@@ -81,7 +81,7 @@ export default function Footer() {
         h-9 w-9 sm:h-11 sm:w-11     /* 🔽 smaller on mobile */
         rounded-full
         bg-gray-900/70
-       mt-3
+       
         text-gray-400
         hover:text-[rgb(var(--accent))]
         hover:border-[rgb(var(--accent))/60]
