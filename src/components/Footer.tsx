@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Github, Linkedin, Twitter } from "lucide-react";
+import { useRef } from "react";
 
 const socials = [
   { icon: Github, href: "https://github.com/yourname", label: "GitHub" },
@@ -10,43 +11,89 @@ const socials = [
 ];
 
 export default function Footer() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  // scroll-based motion
+  const y = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const glow = useTransform(scrollYProgress, [0, 1], [0.08, 0.18]);
+
   return (
-    <footer className="relative overflow-hidden bg-black border-t border-gray-800">
+    <footer
+      ref={ref}
+      className="relative overflow-hidden bg-black border-t border-gray-800"
+    >
       {/* top divider */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgb(var(--accent))/50] to-transparent" />
 
       {/* ===== Background ===== */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* neon center glow */}
-        <div className="absolute left-1/2 top-1/2 h-[440px] w-[440px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/10 blur-[140px]" />
-
-        {/* vignette */}
+      <motion.div
+        style={{ opacity: glow }}
+        className="pointer-events-none absolute inset-0"
+      >
+        <div className="absolute left-1/2 top-1/2 h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgb(var(--accent))] blur-[160px]" />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black" />
-      </div>
+      </motion.div>
 
-      {/* Background name */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <span
-          className="
-            select-none font-black uppercase tracking-[0.25em]
-            text-[20vw] sm:text-[14vw]
-            text-emerald-400/10
-            drop-shadow-[0_0_60px_rgba(16,185,129,0.25)]
-            mask-image:linear-gradient(to_bottom,transparent,black,transparent)
-          "
-        >
-          SATYAM
-        </span>
-      </div>
+      {/* ===== SATYAM Identity ===== */}
+      <motion.div
+        style={{ y }}
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      >
+        <div className="relative">
+          {/* main text */}
+          <span
+            className="
+              select-none font-black uppercase tracking-[0.3em]
+              text-[20vw] sm:text-[14vw]
+              text-[rgb(var(--accent))/12]
+              drop-shadow-[0_0_80px_rgba(var(--accent),0.35)]
+            "
+          >
+            SATYAM
+          </span>
+
+          {/* scan-line */}
+          <motion.span
+            animate={{ y: ["-20%", "120%"] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+            className="
+              absolute left-0 right-0 top-0 h-12
+              bg-gradient-to-b
+              from-transparent
+              via-[rgb(var(--accent))/25]
+              to-transparent
+              blur-md
+            "
+          />
+
+          {/* pulse */}
+          <motion.span
+            animate={{ opacity: [0.15, 0.35, 0.15] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="
+              absolute inset-0
+              text-[rgb(var(--accent))/10]
+              blur-xl
+            "
+          >
+            SATYAM
+          </motion.span>
+        </div>
+      </motion.div>
 
       {/* ===== Content ===== */}
       <div className="relative max-w-6xl mx-auto px-6 py-16">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="flex items-center justify-center gap-6"
+          className="flex justify-center gap-6"
         >
           {socials.map(({ icon: Icon, href, label }) => (
             <motion.a
@@ -54,7 +101,7 @@ export default function Footer() {
               href={href}
               target="_blank"
               aria-label={label}
-              whileHover={{ y: -6 }}
+              whileHover={{ y: -6, scale: 1.05 }}
               transition={{ type: "spring", stiffness: 220, damping: 18 }}
               className="
                 group relative
@@ -63,13 +110,13 @@ export default function Footer() {
                 border border-gray-800
                 bg-gray-900
                 text-gray-400
-                hover:text-emerald-400 hover:border-emerald-500/60
-                transition-colors duration-300
+                hover:text-[rgb(var(--accent))]
+                hover:border-[rgb(var(--accent))/60]
+                transition-colors
               "
             >
-              {/* hover glow */}
               <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition">
-                <span className="absolute inset-0 rounded-full bg-emerald-400/15 blur-md" />
+                <span className="absolute inset-0 rounded-full bg-[rgb(var(--accent))/20] blur-md" />
               </span>
 
               <Icon className="relative z-10 h-5 w-5" />
