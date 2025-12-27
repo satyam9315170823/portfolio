@@ -90,43 +90,41 @@ export default function Footer() {
 
 
       {/* ===== Content ===== */}
-      <div className="relative max-w-6xl mx-auto px-6 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="flex justify-center gap-6"
-        >
-          {socials.map(({ icon: Icon, href, label }) => (
-            <motion.a
-              key={label}
-              href={href}
-              target="_blank"
-              aria-label={label}
-              whileHover={{ y: -6, scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 220, damping: 18 }}
-              className="
-                group relative
-                flex h-11 w-11 items-center justify-center
-                rounded-full
-                border border-gray-800
-                bg-gray-900
-                text-gray-400
-                hover:text-[rgb(var(--accent))]
-                hover:border-[rgb(var(--accent))/60]
-                transition-colors
-              "
-            >
-              <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition">
-                <span className="absolute inset-0 rounded-full bg-[rgb(var(--accent))/20] blur-md" />
-              </span>
+    {/* ===== Content (ICONS – STATIC) ===== */}
+<div className="relative z-20 max-w-6xl mx-auto px-6 py-16">
+  <motion.div
+    initial={{ opacity: 0, y: 16 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    className="flex justify-center gap-6"
+  >
+    {socials.map(({ icon: Icon, href, label }) => (
+      <motion.a
+        key={label}
+        href={href}
+        target="_blank"
+        aria-label={label}
+        whileHover={{ y: -6, scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 220, damping: 18 }}
+        className="
+          group relative
+          flex h-11 w-11 items-center justify-center
+          rounded-full
+          border border-gray-800
+          bg-gray-900
+          text-gray-400
+          hover:text-[rgb(var(--accent))]
+          hover:border-[rgb(var(--accent))/60]
+          transition-colors
+        "
+      >
+        <Icon className="relative z-10 h-5 w-5" />
+      </motion.a>
+    ))}
+  </motion.div>
+</div>
 
-              <Icon className="relative z-10 h-5 w-5" />
-            </motion.a>
-          ))}
-        </motion.div>
-      </div>
     </footer>
   );
 }
