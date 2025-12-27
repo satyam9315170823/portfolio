@@ -54,47 +54,50 @@ export default function Footer() {
       "
     >
       {/* 🪟 Glass dock */}
-      <div
-        className="
-          flex flex-col sm:flex-row   /* 📱 mobile vertical */
-          gap-3 sm:gap-4
-          rounded-full sm:rounded-2xl
-          px-4 py-3
-          bg-black/60
-          backdrop-blur-xl
-          border border-gray-800
-          shadow-[0_0_40px_rgba(0,0,0,0.6)]
-        "
-      >
-        {socials.map(({ icon: Icon, href, label }) => (
-          <motion.a
-            key={label}
-            href={href}
-            target="_blank"
-            aria-label={label}
-            whileHover={{ y: -4, scale: 1.08 }}
-            transition={{ type: "spring", stiffness: 260, damping: 18 }}
-            className="
-              group relative
-              flex h-11 w-11 items-center justify-center
-              rounded-full
-              bg-gray-900/70
-              border border-gray-800
-              text-gray-400
-              hover:text-[rgb(var(--accent))]
-              hover:border-[rgb(var(--accent))/60]
-              transition-colors
-            "
-          >
-            {/* hover glow */}
-            <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition">
-              <span className="absolute inset-0 rounded-full bg-[rgb(var(--accent))/20] blur-md" />
-            </span>
+ {/* 🪟 Glass dock */}
+<div
+  className="
+    flex flex-row          /* horizontal on all screens */
+    gap-2 sm:gap-4         /* tighter gap on mobile */
+    rounded-full
+    px-3 py-2 sm:px-4 sm:py-3
+    bg-black/60
+    backdrop-blur-xl
+   
+    shadow-[0_0_40px_rgba(0,0,0,0.6)]
+  "
+>
+  {socials.map(({ icon: Icon, href, label }) => (
+    <motion.a
+      key={label}
+      href={href}
+      target="_blank"
+      aria-label={label}
+      whileHover={{ y: -4, scale: 1.08 }}
+      transition={{ type: "spring", stiffness: 260, damping: 18 }}
+      className="
+        group relative
+        flex items-center justify-center
+        h-9 w-9 sm:h-11 sm:w-11     /* 🔽 smaller on mobile */
+        rounded-full
+        bg-gray-900/70
+       
+        text-gray-400
+        hover:text-[rgb(var(--accent))]
+        hover:border-[rgb(var(--accent))/60]
+        transition-colors
+      "
+    >
+      {/* hover glow */}
+      <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition">
+        <span className="absolute inset-0 rounded-full bg-[rgb(var(--accent))/20] blur-md" />
+      </span>
 
-            <Icon className="relative z-10 h-5 w-5" />
-          </motion.a>
-        ))}
-      </div>
+      <Icon className="relative z-10 h-4 w-4 sm:h-5 sm:w-5" />
+    </motion.a>
+  ))}
+</div>
+
     </motion.div>
   );
 }
