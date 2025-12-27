@@ -2,6 +2,7 @@
 
 :root {
   --background: #ffffff;
+   --accent: 16 185 129; /* emerald-400 */
   --foreground: #171717;
 }
 
