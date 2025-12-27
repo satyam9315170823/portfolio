@@ -50,7 +50,7 @@ export default function Footer() {
       }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="
-        fixed bottom-6 left-1/2 -translate-x-1/2 z-50
+        fixed bottom-6 left-1/2 -translate-x-1/2 z-50 mt-2
       "
     >
       {/* 🪟 Glass dock */}
