@@ -40,51 +40,54 @@ export default function Footer() {
       </motion.div>
 
       {/* ===== SATYAM Identity ===== */}
-      <motion.div
-        style={{ y }}
-        className="pointer-events-none absolute inset-0 flex items-center justify-center"
-      >
-        <div className="relative">
-          {/* main text */}
-          <span
-            className="
-              select-none font-black uppercase tracking-[0.3em]
-              text-[20vw] sm:text-[14vw]
-              text-[rgb(var(--accent))/12]
-              drop-shadow-[0_0_80px_rgba(var(--accent),0.35)]
-            "
-          >
-            SATYAM
-          </span>
+     {/* ===== SATYAM Identity ===== */}
+<motion.div
+  style={{ y }}
+  className="pointer-events-none absolute inset-0 flex items-center justify-center"
+>
+  <div className="relative">
+    {/* main text */}
+    <span
+      className="
+        select-none font-black uppercase tracking-[0.25em]
+        text-[14vw] sm:text-[10vw]   /* ↓ smaller */
+        text-[rgb(var(--accent))/7] /* ↓ dimmer */
+        drop-shadow-[0_0_40px_rgba(var(--accent),0.18)]
+      "
+    >
+      SATYAM
+    </span>
 
-          {/* scan-line */}
-          <motion.span
-            animate={{ y: ["-20%", "120%"] }}
-            transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
-            className="
-              absolute left-0 right-0 top-0 h-12
-              bg-gradient-to-b
-              from-transparent
-              via-[rgb(var(--accent))/25]
-              to-transparent
-              blur-md
-            "
-          />
+    {/* scan-line (softer & thinner) */}
+    <motion.span
+      animate={{ y: ["-30%", "130%"] }}
+      transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
+      className="
+        absolute left-0 right-0 top-0 h-8
+        bg-gradient-to-b
+        from-transparent
+        via-[rgb(var(--accent))/15]
+        to-transparent
+        blur-sm
+      "
+    />
 
-          {/* pulse */}
-          <motion.span
-            animate={{ opacity: [0.15, 0.35, 0.15] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="
-              absolute inset-0
-              text-[rgb(var(--accent))/10]
-              blur-xl
-            "
-          >
-            SATYAM
-          </motion.span>
-        </div>
-      </motion.div>
+    {/* ambient pulse (very subtle) */}
+    <motion.span
+      animate={{ opacity: [0.05, 0.12, 0.05] }}
+      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      className="
+        absolute inset-0
+        text-[rgb(var(--accent))/6]
+        blur-2xl
+      "
+    >
+      SATYAM
+    </motion.span>
+  </div>
+</motion.div>
+
+
 
       {/* ===== Content ===== */}
       <div className="relative max-w-6xl mx-auto px-6 py-16">
