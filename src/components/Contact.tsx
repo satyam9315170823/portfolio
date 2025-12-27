@@ -77,7 +77,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-12 md:py-24 px-4 overflow-hidden bg-black selection:bg-indigo-500/30">
+    <section id="contact" className="relative py-16 md:py-24 px-4 overflow-hidden bg-black selection:bg-indigo-500/30">
       {/* Background Gradients - Adjusted for mobile visibility */}
       <div className="absolute top-0 left-0 md:left-1/4 w-64 h-64 md:w-96 md:h-96 bg-indigo-600/20 rounded-full blur-[80px] md:blur-[128px] -z-10 animate-pulse" />
       <div className="absolute bottom-0 right-0 md:right-1/4 w-64 h-64 md:w-96 md:h-96 bg-purple-600/20 rounded-full blur-[80px] md:blur-[128px] -z-10 animate-pulse delay-1000" />
