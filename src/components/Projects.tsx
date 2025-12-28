@@ -3,16 +3,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Category = "All" | "MERN" | "Next.js" | "GoLang" | "Web3" | "GenAI";
+type Category = "All" | "TypeScript" | "GoLang" | "Web3" | "GenAI";
 
 const categories: Category[] = [
   "All",
-  "MERN",
-  "Next.js",
+  "TypeScript",
   "GoLang",
   "Web3",
   "GenAI",
 ];
+;
+
 
 type Project = {
   title: string;
@@ -27,25 +28,26 @@ type Project = {
 const projects: Project[] = [
   // ===== FEATURED PROJECTS =====
   {
-    title: "SaaS Platform",
-    description:
-      "Production-grade SaaS platform with authentication, payments, RBAC, dashboards, and scalable backend architecture.",
-    category: "Next.js",
-    tech: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Docker"],
-    live: "#",
-    repo: "#",
-    featured: true,
-  },
-  {
-    title: "Distributed Task Manager",
-    description:
-      "High-scale MERN application with background jobs, caching, real-time updates, and role-based access control.",
-    category: "MERN",
-    tech: ["MongoDB", "Express", "React", "Node.js", "Redis"],
-    live: "#",
-    repo: "#",
-    featured: true,
-  },
+  title: "SaaS Platform",
+  description:
+    "Production-grade SaaS platform with authentication, payments, RBAC, dashboards, and scalable backend architecture.",
+  category: "TypeScript", // ✅ changed
+  tech: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Docker"],
+  live: "#",
+  repo: "#",
+  featured: true,
+},
+{
+  title: "Distributed Task Manager",
+  description:
+    "High-scale application with background jobs, caching, real-time updates, and role-based access control.",
+  category: "TypeScript", // ✅ changed
+  tech: ["MongoDB", "Express", "React", "Node.js", "Redis"],
+  live: "#",
+  repo: "#",
+  featured: true,
+},
+
   {
     title: "GenAI RAG System",
     description:
