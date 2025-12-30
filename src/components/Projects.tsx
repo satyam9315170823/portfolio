@@ -250,7 +250,7 @@ export default function Projects() {
         {/* ================= FILTER TABS ================= */}
         <div className="flex flex-col md:flex-row md:items-center gap-4 mb-12">
           <span className="text-gray-500 text-sm font-medium whitespace-nowrap">
-            Filter by:
+         
           </span>
           <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
