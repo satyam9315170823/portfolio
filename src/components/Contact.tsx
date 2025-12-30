@@ -80,7 +80,7 @@ export default function Contact() {
     <section id="contact" className="relative py-12 mb-4 md:py-24 px-4 overflow-hidden selection:bg-indigo-500/30">
       
       {/* Noise Texture */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 -z-10"></div>
+      <div className="absolute inset-0   -z-10"></div>
 
       <div className="max-w-7xl mx-auto w-full">
         {/* Header Section */}
@@ -122,8 +122,7 @@ export default function Contact() {
             {contactInfo.map((item) => (
               <div
                 key={item.id}
-                // Updated: bg-zinc-900 (Solid) - removed /50 opacity
-                className="group relative flex items-start sm:items-center gap-4 p-5 rounded-2xl md:rounded-3xl bg-zinc-900 border border-white/5 hover:border-indigo-500/30 hover:bg-zinc-800 transition-all duration-300"
+                className="group relative flex items-start sm:items-center gap-4 p-5 rounded-2xl md:rounded-3xl bg-zinc-900/50 border border-white/5 hover:border-indigo-500/30 hover:bg-zinc-900/80 transition-all duration-300"
               >
                 {/* Icon Wrapper */}
                 <div className="flex-shrink-0 p-3 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 text-indigo-400 group-hover:text-white group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300 border border-white/5">
@@ -164,10 +163,10 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative order-1 lg:order-2 w-full"
           >
+            {/* REMOVED: Form Glow div was here */}
             
             {/* Form Container */}
-            {/* Updated: bg-zinc-950 (Solid) - removed /80 opacity and backdrop-blur */}
-            <div className="relative p-6 md:p-10 rounded-3xl md:rounded-[2rem] bg-zinc-950 border border-white/10 shadow-2xl">
+            <div className="relative p-6 md:p-10 rounded-3xl md:rounded-[2rem] bg-zinc-950/80 border border-white/10 backdrop-blur-xl shadow-2xl">
               <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6">
                 
                 {/* Name & Email Row */}
