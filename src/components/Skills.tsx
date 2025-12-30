@@ -29,7 +29,7 @@ const skillGroups = [
     bg: "group-hover:bg-purple-500/10",
     border: "group-hover:border-purple-500/20",
     icon: <Layout className="w-5 h-5" />,
-    skills: ["Next.js", "React", "Tailwind CSS", "HTML", "CSS", "Framer Motion"],
+    skills: ["Next.js", "React", "Tailwind CSS", "shadcn"],
   },
   {
     title: "Backend",
@@ -65,7 +65,7 @@ const skillGroups = [
     bg: "group-hover:bg-rose-500/10",
     border: "group-hover:border-rose-500/20",
     icon: <Cpu className="w-5 h-5" />,
-    skills: ["Ethereum", "Solidity", "Smart Contracts","Langchain","Langgraph","Mcp","Rust" "OpenAI API", "Vector DB"],
+    skills: ["Ethereum", "Solidity", "Smart Contracts","Langchain","Langgraph","Mcp","Rust" ,"OpenAI API", "Vector DB"],
   },
 ];
 
