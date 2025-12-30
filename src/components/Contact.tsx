@@ -77,9 +77,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-12 mb-4 md:py-24 px-4 overflow-hidden  selection:bg-indigo-500/30">
+    <section id="contact" className="relative py-12 mb-4 md:py-24 px-4 overflow-hidden selection:bg-indigo-500/30">
       
-      {/* Noise Texture - Kept for texture without color */}
+      {/* Noise Texture */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 -z-10"></div>
 
       <div className="max-w-7xl mx-auto w-full">
@@ -104,7 +104,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Main Grid: Stacks on Mobile/Tablet, Side-by-Side on Desktop */}
+        {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Contact Details */}
@@ -117,20 +117,20 @@ export default function Contact() {
           >
             <div className="space-y-2 mb-2 md:mb-4 text-center lg:text-left">
                 <h3 className="text-xl md:text-2xl font-semibold text-white">Contact Details</h3>
-                
             </div>
 
             {contactInfo.map((item) => (
               <div
                 key={item.id}
-                className="group relative flex items-start sm:items-center gap-4 p-5 rounded-2xl md:rounded-3xl bg-zinc-900/50 border border-white/5 hover:border-indigo-500/30 hover:bg-zinc-900/80 transition-all duration-300"
+                // Updated: bg-zinc-900 (Solid) - removed /50 opacity
+                className="group relative flex items-start sm:items-center gap-4 p-5 rounded-2xl md:rounded-3xl bg-zinc-900 border border-white/5 hover:border-indigo-500/30 hover:bg-zinc-800 transition-all duration-300"
               >
                 {/* Icon Wrapper */}
                 <div className="flex-shrink-0 p-3 rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 text-indigo-400 group-hover:text-white group-hover:from-indigo-500 group-hover:to-purple-500 transition-all duration-300 border border-white/5">
                   {item.icon}
                 </div>
                 
-                {/* Text Content - Added break-all for long emails */}
+                {/* Text Content */}
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-medium text-gray-400 mb-0.5 uppercase tracking-wider">
                     {item.label}
@@ -154,9 +154,6 @@ export default function Contact() {
                 </button>
               </div>
             ))}
-
-            {/* Quote Card - Hidden on very small screens, visible on tablet+ */}
-          
           </motion.div>
 
           {/* Right Column: Form */}
@@ -167,14 +164,13 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative order-1 lg:order-2 w-full"
           >
-            {/* Form Glow */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[2rem] opacity-20 blur-xl" />
             
             {/* Form Container */}
-            <div className="relative p-6 md:p-10 rounded-3xl md:rounded-[2rem] bg-zinc-950/80 border border-white/10 backdrop-blur-xl shadow-2xl">
+            {/* Updated: bg-zinc-950 (Solid) - removed /80 opacity and backdrop-blur */}
+            <div className="relative p-6 md:p-10 rounded-3xl md:rounded-[2rem] bg-zinc-950 border border-white/10 shadow-2xl">
               <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6">
                 
-                {/* Name & Email Row - Stack on Mobile, Row on Desktop */}
+                {/* Name & Email Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="flex flex-col gap-2">
                         <label htmlFor="name" className="text-sm font-medium text-gray-300 ml-1">
