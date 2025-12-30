@@ -102,7 +102,7 @@ export default function Projects() {
       id="projects"
       className="
         relative py-32 overflow-hidden
-        bg-[#0a0a0a]
+       
       "
     >
       {/* Background Gradients */}
