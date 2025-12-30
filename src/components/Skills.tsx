@@ -56,7 +56,7 @@ const skillGroups = [
     bg: "group-hover:bg-sky-500/10",
     border: "group-hover:border-sky-500/20",
     icon: <Cloud className="w-5 h-5" />,
-    skills: ["Docker", "Kubernetes", "Ansible", "CI/CD", "AWS","Jenkins",Terraform, "Nginx"],
+    skills: ["Docker", "Kubernetes", "Ansible", "CI/CD", "AWS","Jenkins","Terraform", "Nginx"],
   },
   {
     title: "Web3 & AI",
