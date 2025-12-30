@@ -3,15 +3,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Category = "All" | "MERN" | "Next.js" | "GoLang" | "Web3" | "GenAI";
+// Updated type definition based on your request
+type Category = "All" | "Typescript" | "Golang" | "Web 3" | "Genai";
 
+// Updated categories array
 const categories: Category[] = [
   "All",
-  "MERN",
-  "Next.js",
-  "GoLang",
-  "Web3",
-  "GenAI",
+  "Typescript",
+  "Golang",
+  "Web 3",
+  "Genai",
 ];
 
 type Project = {
@@ -30,7 +31,7 @@ const projects: Project[] = [
     title: "SaaS Platform",
     description:
       "Production-grade SaaS platform with authentication, payments, RBAC, dashboards, and scalable backend architecture.",
-    category: "Next.js",
+    category: "Typescript", // Mapped Next.js to Typescript
     tech: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Docker"],
     live: "#",
     repo: "#",
@@ -40,7 +41,7 @@ const projects: Project[] = [
     title: "Distributed Task Manager",
     description:
       "High-scale MERN application with background jobs, caching, real-time updates, and role-based access control.",
-    category: "MERN",
+    category: "Typescript", // Mapped MERN to Typescript
     tech: ["MongoDB", "Express", "React", "Node.js", "Redis"],
     live: "#",
     repo: "#",
@@ -50,7 +51,7 @@ const projects: Project[] = [
     title: "GenAI RAG System",
     description:
       "End-to-end RAG pipeline with embeddings, vector search, prompt orchestration, and observability.",
-    category: "GenAI",
+    category: "Genai", // Mapped GenAI to Genai
     tech: ["Next.js", "LLMs", "Vector DB", "LangChain"],
     live: "#",
     repo: "#",
@@ -62,7 +63,7 @@ const projects: Project[] = [
     title: "GoLang REST API",
     description:
       "High-performance REST API built in Go with clean architecture, JWT authentication, and PostgreSQL.",
-    category: "GoLang",
+    category: "Golang", // Mapped GoLang to Golang
     tech: ["Go", "PostgreSQL", "JWT", "Docker"],
     live: "#",
     repo: "#",
@@ -71,7 +72,7 @@ const projects: Project[] = [
     title: "Web3 Voting DApp",
     description:
       "Decentralized voting application using Solidity smart contracts on Ethereum.",
-    category: "Web3",
+    category: "Web 3", // Mapped Web3 to Web 3
     tech: ["Solidity", "Ethereum", "Ethers.js", "Next.js"],
     live: "#",
     repo: "#",
@@ -80,7 +81,7 @@ const projects: Project[] = [
     title: "AI Chat Assistant",
     description:
       "LLM-powered chat assistant with context memory and embeddings.",
-    category: "GenAI",
+    category: "Genai", // Mapped GenAI to Genai
     tech: ["LLMs", "Vector DB", "Next.js"],
     live: "#",
     repo: "#",
@@ -247,7 +248,6 @@ export default function Projects() {
         </div>
 
         {/* ================= FILTER TABS ================= */}
-        {/* Changed layout: Stack vertically on mobile (flex-col), row on desktop (md:flex-row) */}
         <div className="flex flex-col md:flex-row md:items-center gap-4 mb-12">
           <span className="text-gray-500 text-sm font-medium whitespace-nowrap">
             Filter by:
