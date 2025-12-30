@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { 
   Cpu, 
   Zap, 
@@ -9,7 +9,7 @@ import {
   ArrowUpRight 
 } from "lucide-react";
 
-// --- REFINED CONTENT ---
+// --- DATA ---
 const philosophies = [
   {
     id: "01",
@@ -45,7 +45,8 @@ const philosophies = [
   },
 ];
 
-const container = {
+// --- VARIANTS (Typed to fix the build error) ---
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -53,16 +54,23 @@ const container = {
   }
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.4, 
+      ease: "easeOut" 
+    } 
+  }
 };
 
 export default function EngineeringPhilosophy() {
   return (
-    <section id ="about" className="relative w-full py-32 bg-zinc-950 text-zinc-100 overflow-hidden">
+    <section id="about"  className="relative w-full py-32 bg-zinc-950 text-zinc-100 overflow-hidden">
       
-      {/* 1. Subtle Noise Overlay for Texture (Cinema Effect) */}
+      {/* 1. Subtle Noise Overlay for Texture */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
            style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} 
       />
@@ -77,6 +85,7 @@ export default function EngineeringPhilosophy() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="mb-24 md:flex md:items-end md:justify-between border-b border-white/10 pb-8"
         >
           <div className="max-w-xl">
