@@ -2,44 +2,63 @@
 
 import { motion, Variants } from "framer-motion";
 import { 
-  Cpu, 
-  Zap, 
-  ShieldCheck, 
-  Layers, 
-  ArrowUpRight 
+
+  
+  
+    Layers,
+  Zap,
+  ShieldCheck,
+  Cpu,
+  Code2,
+  Globe,
 } from "lucide-react";
 
 // --- DATA (Content Preserved) ---
 const philosophies = [
   {
     id: "01",
-    title: "Scalability is Intentional",
-    desc: "I don't write code that just 'works' today. I engineer systems that survive tomorrow. Whether it's decoupling services or enforcing strict type safety, every decision is made to prevent technical debt before it starts.",
+    title: "Systems Before Features",
+    desc: "I design systems, not just endpoints. Services are decoupled, contracts are explicit, and data ownership is clear. Whether in Go, TypeScript, or Rust, architecture always comes before implementation.",
     icon: <Layers className="w-5 h-5" />,
     colSpan: "md:col-span-2",
   },
   {
     id: "02",
-    title: "Obsessive Performance",
-    desc: "A 100ms delay is a UX failure. I aggressively optimize bundles, leverage edge caching, and fine-tune database indexing because speed is a feature, not an afterthought.",
+    title: "Scalability Is Engineered",
+    desc: "Scalability is never accidental. I build event-driven microservices using Kafka and RabbitMQ, design for horizontal scaling, and remove bottlenecks before traffic exposes them.",
     icon: <Zap className="w-5 h-5" />,
     colSpan: "md:col-span-1",
   },
   {
     id: "03",
-    title: "Sleep-Well Reliability",
-    desc: "Production shouldn't be scary. By implementing comprehensive logging, graceful degradation, and automated recovery strategies, I ensure the system stays up so I can sleep soundly.",
+    title: "Production Is the Real Test",
+    desc: "Code earns trust only in production. I focus on observability, fault tolerance, graceful degradation, and automated recovery so systems remain reliable under real-world failure modes.",
     icon: <ShieldCheck className="w-5 h-5" />,
     colSpan: "md:col-span-1",
   },
   {
     id: "04",
-    title: "Pragmatism Over Hype",
-    desc: "I choose tools that solve business problems, not just what's trending on Twitter. Rust for safety, Next.js for scale, and SQL for truth. The stack serves the product, not the other way around.",
+    title: "Infrastructure as a First-Class Citizen",
+    desc: "Infrastructure is part of the product. I use Docker, Kubernetes, Terraform, Ansible, and CI/CD pipelines with Jenkins to ensure environments are reproducible, scalable, and deployment is never a bottleneck.",
     icon: <Cpu className="w-5 h-5" />,
     colSpan: "md:col-span-2",
   },
+  {
+    id: "05",
+    title: "Strong Types, Strong Guarantees",
+    desc: "Type safety is leverage. I rely on TypeScript and Rust to catch failures early, define clear boundaries, and build systems that are safer to evolve over time.",
+    icon: <Code2 className="w-5 h-5" />,
+    colSpan: "md:col-span-1",
+  },
+  {
+    id: "06",
+    title: "Exploring the Next Curve",
+    desc: "I actively experiment with Web3 primitives and GenAI systems—applying solid engineering fundamentals to emerging technologies instead of chasing hype.",
+    icon: <Globe className="w-5 h-5" />,
+    colSpan: "md:col-span-1",
+  },
 ];
+
 
 // --- ANIMATIONS ---
 const container: Variants = {
