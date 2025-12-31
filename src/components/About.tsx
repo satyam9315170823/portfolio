@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Layers, Zap, ShieldCheck, Cpu } from "lucide-react";
+import { Layers, Zap, ShieldCheck, Cpu ,ArrowUpRight} from "lucide-react";
 
 const philosophies = [
   {
