@@ -1,61 +1,36 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { 
+import { Layers, Zap, ShieldCheck, Cpu } from "lucide-react";
 
-  
-  
-    Layers,
-  Zap,
-  ShieldCheck,
-  Cpu,
-  Code2,
-  Globe,
-} from "lucide-react";
-
-// --- DATA (Content Preserved) ---
 const philosophies = [
   {
     id: "01",
     title: "Systems Before Features",
-    desc: "I design systems, not just endpoints. Services are decoupled, contracts are explicit, and data ownership is clear. Whether in Go, TypeScript, or Rust, architecture always comes before implementation.",
+    desc: "I design systems, not just endpoints. Clear service boundaries, explicit contracts, and ownership-first architecture guide every decision across TypeScript, Go, and Rust.",
     icon: <Layers className="w-5 h-5" />,
     colSpan: "md:col-span-2",
   },
   {
     id: "02",
     title: "Scalability Is Engineered",
-    desc: "Scalability is never accidental. I build event-driven microservices using Kafka and RabbitMQ, design for horizontal scaling, and remove bottlenecks before traffic exposes them.",
+    desc: "Scalability never happens by accident. I build event-driven microservices with Kafka and RabbitMQ, design for horizontal scaling, and eliminate bottlenecks before traffic exposes them.",
     icon: <Zap className="w-5 h-5" />,
     colSpan: "md:col-span-1",
   },
   {
     id: "03",
-    title: "Production Is the Real Test",
-    desc: "Code earns trust only in production. I focus on observability, fault tolerance, graceful degradation, and automated recovery so systems remain reliable under real-world failure modes.",
+    title: "Production-Grade Reliability",
+    desc: "Production is the real test. I focus on observability, fault tolerance, graceful degradation, and automated recovery so systems remain stable under real-world failure modes.",
     icon: <ShieldCheck className="w-5 h-5" />,
     colSpan: "md:col-span-1",
   },
   {
     id: "04",
-    title: "Infrastructure as a First-Class Citizen",
-    desc: "Infrastructure is part of the product. I use Docker, Kubernetes, Terraform, Ansible, and CI/CD pipelines with Jenkins to ensure environments are reproducible, scalable, and deployment is never a bottleneck.",
+    title: "Infrastructure Is the Product",
+    desc: "Infrastructure is a first-class citizen. Using Docker, Kubernetes, Terraform, Ansible, and CI/CD pipelines, I ensure deployments are reproducible, scalable, and boring—in the best way.",
     icon: <Cpu className="w-5 h-5" />,
     colSpan: "md:col-span-2",
-  },
-  {
-    id: "05",
-    title: "Strong Types, Strong Guarantees",
-    desc: "Type safety is leverage. I rely on TypeScript and Rust to catch failures early, define clear boundaries, and build systems that are safer to evolve over time.",
-    icon: <Code2 className="w-5 h-5" />,
-    colSpan: "md:col-span-1",
-  },
-  {
-    id: "06",
-    title: "Exploring the Next Curve",
-    desc: "I actively experiment with Web3 primitives and GenAI systems—applying solid engineering fundamentals to emerging technologies instead of chasing hype.",
-    icon: <Globe className="w-5 h-5" />,
-    colSpan: "md:col-span-1",
   },
 ];
 
