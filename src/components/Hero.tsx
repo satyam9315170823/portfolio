@@ -108,7 +108,7 @@ export default function Hero() {
               {/* Image Card */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 shadow-2xl rotate-3 group-hover:rotate-0 transition duration-500 ease-out">
                 <Image
-                  src="/profile.jpg"
+                  src="/p.png"
                   alt="Satyam Kumar"
                   fill
                   priority
