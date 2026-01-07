@@ -1,194 +1,170 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { 
-  Code2, 
-  Layout, 
-  Server, 
-  Database, 
-  Cloud, 
-  Cpu 
+import {
+  Code2,
+  Layout,
+  Server,
+  Database,
+  Cloud,
+  Cpu,
 } from "lucide-react";
 
-// --- DATA ---
+/* -------------------------------------------------------------------------- */
+/*                                    DATA                                    */
+/* -------------------------------------------------------------------------- */
+
 const skillGroups = [
   {
     title: "Languages",
-    // Added explicit color class for dynamic styling
+    accent: "from-blue-400/30 via-blue-500/10 to-transparent",
     color: "text-blue-400",
-    glow: "group-hover:shadow-blue-500/20",
-    bg: "group-hover:bg-blue-500/10",
-    border: "group-hover:border-blue-500/20",
     icon: <Code2 className="w-5 h-5" />,
     skills: ["Go", "TypeScript", "JavaScript", "Rust", "Python", "C++", "Solidity"],
   },
   {
     title: "Frontend",
+    accent: "from-purple-400/30 via-purple-500/10 to-transparent",
     color: "text-purple-400",
-    glow: "group-hover:shadow-purple-500/20",
-    bg: "group-hover:bg-purple-500/10",
-    border: "group-hover:border-purple-500/20",
     icon: <Layout className="w-5 h-5" />,
     skills: ["Next.js", "React", "Tailwind CSS", "shadcn"],
   },
   {
     title: "Backend",
+    accent: "from-emerald-400/30 via-emerald-500/10 to-transparent",
     color: "text-emerald-400",
-    glow: "group-hover:shadow-emerald-500/20",
-    bg: "group-hover:bg-emerald-500/10",
-    border: "group-hover:border-emerald-500/20",
     icon: <Server className="w-5 h-5" />,
-    skills: ["Node.js", "Express", "Go APIs", "REST", "GraphQL","Grpc","Kafka" ,"tRPC"],
+    skills: ["Node.js", "Express", "Go APIs", "REST", "GraphQL", "gRPC", "Kafka", "tRPC"],
   },
   {
     title: "Databases",
+    accent: "from-amber-400/30 via-amber-500/10 to-transparent",
     color: "text-amber-400",
-    glow: "group-hover:shadow-amber-500/20",
-    bg: "group-hover:bg-amber-500/10",
-    border: "group-hover:border-amber-500/20",
     icon: <Database className="w-5 h-5" />,
     skills: ["MongoDB", "PostgreSQL", "Prisma", "Drizzle ORM", "Redis"],
   },
   {
     title: "DevOps & Cloud",
+    accent: "from-sky-400/30 via-sky-500/10 to-transparent",
     color: "text-sky-400",
-    glow: "group-hover:shadow-sky-500/20",
-    bg: "group-hover:bg-sky-500/10",
-    border: "group-hover:border-sky-500/20",
     icon: <Cloud className="w-5 h-5" />,
-    skills: ["Docker", "Kubernetes", "Ansible", "CI/CD", "AWS","Jenkins","Terraform", "Nginx"],
+    skills: ["Docker", "Kubernetes", "Terraform", "AWS", "CI/CD", "Jenkins", "Nginx"],
   },
   {
     title: "Web3 & AI",
+    accent: "from-rose-400/30 via-rose-500/10 to-transparent",
     color: "text-rose-400",
-    glow: "group-hover:shadow-rose-500/20",
-    bg: "group-hover:bg-rose-500/10",
-    border: "group-hover:border-rose-500/20",
     icon: <Cpu className="w-5 h-5" />,
-    skills: ["Ethereum", "Solidity", "Smart Contracts","Langchain","Langgraph","Mcp","Rust" ,"OpenAI API", "Vector DB"],
+    skills: [
+      "Ethereum",
+      "Solidity",
+      "Smart Contracts",
+      "LangChain",
+      "LangGraph",
+      "MCP",
+      "OpenAI API",
+      "Vector DB",
+    ],
   },
 ];
 
-// --- ANIMATION ---
+/* -------------------------------------------------------------------------- */
+/*                                 ANIMATION                                  */
+/* -------------------------------------------------------------------------- */
+
 const container: Variants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.08 },
+  },
 };
 
-const item: Variants = {
-  hidden: { opacity: 0, y: 20, filter: "blur(5px)" },
+const card: Variants = {
+  hidden: { opacity: 0, y: 30, scale: 0.96 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.5, ease: "easeOut" }
-  }
+    scale: 1,
+    transition: { type: "spring", stiffness: 120, damping: 18 },
+  },
 };
+
+/* -------------------------------------------------------------------------- */
+/*                                   VIEW                                     */
+/* -------------------------------------------------------------------------- */
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-32 bg-zinc-950 overflow-hidden text-zinc-200 selection:bg-zinc-800 selection:text-white">
-      
-      {/* 1. Subtle Noise Overlay (Consistent with Philosophy Section) */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
-           style={{ backgroundImage: `url("https://grainy-gradients.vercel.app/noise.svg")` }} 
-      />
+    <section
+      id="skills"
+      className="relative py-36 bg-zinc-950 text-zinc-200 overflow-hidden"
+    >
+      {/* Ambient background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,#ffffff08,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:28px_28px] mask-radial-faded pointer-events-none" />
 
-      {/* 2. Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
-      
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
-        
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-20 flex flex-col items-center text-center"
+          transition={{ duration: 0.6 }}
+          className="mb-24 text-center"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-zinc-400 mb-6 backdrop-blur-md">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full border border-white/10 bg-white/5 text-xs font-mono text-zinc-400 backdrop-blur">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            STACK OVERVIEW
-          </div>
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tight text-white mb-6">
-            Technical <span className="font-serif italic text-zinc-500">Arsenal.</span>
+            SYSTEM STACK
+          </span>
+
+          <h2 className="text-5xl md:text-6xl font-medium tracking-tight text-white mb-6">
+            Engineering <span className="italic font-serif text-zinc-500">Toolkit</span>
           </h2>
-          <p className="text-zinc-400 max-w-2xl text-lg leading-relaxed font-light">
-            I don't just use tools; I select the right infrastructure for the job. 
-            A curated stack focused on type-safety, scalability, and developer experience.
+
+          <p className="max-w-2xl mx-auto text-lg text-zinc-400 leading-relaxed">
+            A carefully engineered stack optimized for performance, scale, and
+            long-term maintainability — not hype-driven tooling.
           </p>
         </motion.div>
 
         {/* Grid */}
-        <motion.div 
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {skillGroups.map((group) => (
             <motion.div
               key={group.title}
-              variants={item}
-              className={`
-                group relative
-                flex flex-col
-                h-full
-                p-6
-                bg-zinc-900/40
-                border border-white/5
-                rounded-2xl
-                hover:border-white/10
-                transition-all duration-300
-                backdrop-blur-sm
-              `}
+              variants={card}
+              whileHover={{ y: -6, rotateX: 2, rotateY: -2 }}
+              className="relative group rounded-2xl bg-zinc-900/50 border border-white/5 backdrop-blur-xl p-6 transition-all"
             >
-              {/* Hover Glow Effect (Colored based on category) */}
-              <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/[0.02] to-transparent rounded-2xl`} />
+              {/* Gradient glow */}
+              <div
+                className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl bg-gradient-to-br ${group.accent}`}
+              />
 
-              {/* Card Header */}
-              <div className="flex items-center justify-between mb-8 relative z-10">
-                <div className="flex items-center gap-3">
-                  <div className={`
-                    p-2.5 rounded-lg 
-                    bg-white/5 border border-white/5 
-                    text-zinc-400 
-                    transition-all duration-300
-                    ${group.color} 
-                    ${group.bg} 
-                    ${group.border}
-                  `}>
-                    {group.icon}
-                  </div>
-                  <h3 className="text-lg font-medium text-zinc-200 tracking-tight">
-                    {group.title}
-                  </h3>
+              {/* Header */}
+              <div className="relative z-10 flex items-center gap-3 mb-8">
+                <div
+                  className={`p-2.5 rounded-lg bg-white/5 border border-white/10 ${group.color}`}
+                >
+                  {group.icon}
                 </div>
+                <h3 className="text-lg font-medium tracking-tight">
+                  {group.title}
+                </h3>
               </div>
 
-              {/* Skills Tags - "Terminal Style" */}
-              <div className="flex flex-wrap gap-2 mt-auto relative z-10">
+              {/* Skills */}
+              <div className="relative z-10 flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="
-                      px-2.5 py-1
-                      text-[11px] font-mono tracking-wide
-                      rounded-[4px]
-                      bg-white/5
-                      text-zinc-400
-                      border border-white/5
-                      transition-all duration-300
-                      hover:text-zinc-200
-                      hover:bg-white/10
-                      hover:border-white/20
-                      cursor-default
-                    "
+                    className="px-2.5 py-1 text-[11px] font-mono rounded-md border border-white/5 bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 transition"
                   >
                     {skill}
                   </span>
