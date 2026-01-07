@@ -98,41 +98,28 @@ export default function Hero() {
           {/* ------------------ RIGHT IMAGE ------------------ */}
  <motion.div
   variants={itemVariants}
-  initial="hidden"
-  animate="visible"
+  initial={{ opacity: 0, y: 36 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.9, ease: "easeOut" }}
   className="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-12 lg:mb-0"
 >
-  {/* Floating container */}
-  <motion.div
-    animate={{ y: [0, -10, 0] }}
-    transition={{
-      duration: 6,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-    className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-96 md:h-96 group"
-  >
-    {/* Animated Gradient Ring */}
-    <motion.div
-      animate={{ rotate: 360 }}
-      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      className="absolute -inset-[6px] rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-pink-500 opacity-40 blur-xl"
-    />
+  <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-96 md:h-96 group">
 
-    {/* Soft ambient glow */}
-    <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-green-500/20 to-purple-600/20 blur-2xl group-hover:opacity-60 transition duration-700" />
+    {/* Dim ambient glow (always visible) */}
+    <div
+      className="absolute -inset-8 rounded-full
+                 bg-gradient-to-tr from-blue-500/10 to-purple-500/10
+                 blur-3xl opacity-60"
+    />
 
     {/* Card */}
     <motion.div
-      whileHover={{
-        rotateX: 6,
-        rotateY: -6,
-        scale: 1.05,
-      }}
-      transition={{ type: "spring", stiffness: 120, damping: 12 }}
-      className="relative w-full h-full rounded-xl overflow-hidden
-                 border border-white/10 bg-gray-900/80 backdrop-blur-xl
-                 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+      whileHover={{ scale: 1.025 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      className="relative w-full h-full rounded-md overflow-hidden
+                 bg-neutral-900/90 backdrop-blur-md
+                 border border-neutral-800
+                 shadow-[0_18px_45px_rgba(0,0,0,0.55)]"
     >
       {/* Image */}
       <Image
@@ -140,43 +127,38 @@ export default function Hero() {
         alt="Satyam Kumar"
         fill
         priority
-        className="object-cover opacity-90 group-hover:opacity-100
-                   group-hover:scale-110 transition duration-700 ease-out"
+        className="object-cover opacity-95
+                   transition duration-700
+                   group-hover:scale-105"
       />
 
-      {/* Noise overlay (luxury feel) */}
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none" />
+      {/* Soft top highlight */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent pointer-events-none" />
 
-      {/* Bottom gradient */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+      {/* Bottom fade */}
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/85 to-transparent" />
 
-      {/* Tech Stack */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileHover={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="absolute bottom-3 left-0 right-0 px-4"
-      >
+      {/* Tech stack */}
+      <div className="absolute bottom-3 left-0 right-0 px-4">
         <div className="flex flex-wrap justify-center gap-2">
           {["Go", "MERN", "K8s", "Next.js", "Web3", "GenAI"].map((tech) => (
-            <motion.span
+            <span
               key={tech}
-              whileHover={{ scale: 1.1 }}
-              className="rounded-full px-3 py-1 text-[10px] sm:text-xs
-                         bg-white/10 backdrop-blur-md text-gray-200
-                         border border-white/20 shadow-sm"
+              className="rounded-full px-3 py-1
+                         text-[10px] sm:text-xs
+                         bg-black/40 backdrop-blur
+                         text-neutral-300
+                         border border-neutral-700/70"
             >
               {tech}
-            </motion.span>
+            </span>
           ))}
         </div>
-      </motion.div>
-
-      {/* Glass highlight */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-700" />
+      </div>
     </motion.div>
-  </motion.div>
+  </div>
 </motion.div>
+
 
 
         </motion.div>
