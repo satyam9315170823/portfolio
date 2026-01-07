@@ -112,7 +112,7 @@ export default function Hero() {
     <motion.div
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="relative w-full h-full rounded-3xl overflow-hidden
+      className="relative w-full h-full rounded-md overflow-hidden
                  bg-neutral-900 border border-neutral-800
                  shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
     >
