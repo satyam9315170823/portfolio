@@ -96,48 +96,88 @@ export default function Hero() {
           </div>
 
           {/* ------------------ RIGHT IMAGE ------------------ */}
-          <motion.div
-            variants={itemVariants}
-            className="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-12 lg:mb-0"
-          >
-            <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-96 md:h-96 group">
-              
-              {/* Glow */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 blur-2xl group-hover:opacity-40 transition duration-1000" />
+        <motion.div
+  variants={itemVariants}
+  initial="hidden"
+  animate="visible"
+  className="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-12 lg:mb-0"
+>
+  {/* Floating container */}
+  <motion.div
+    animate={{ y: [0, -10, 0] }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-96 md:h-96 group"
+  >
+    {/* Animated Gradient Ring */}
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      className="absolute -inset-[6px] rounded-full bg-gradient-to-tr from-blue-500 via-purple-500 to-pink-500 opacity-40 blur-xl"
+    />
 
-              {/* Image Card */}
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 shadow-2xl rotate-3 group-hover:rotate-0 transition duration-500 ease-out">
-                <Image
-                  src="/p.png"
-                  alt="Satyam Kumar"
-                  fill
-                  priority
-                  className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500"
-                />
+    {/* Soft ambient glow */}
+    <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-600/20 blur-2xl group-hover:opacity-60 transition duration-700" />
 
-                {/* Tech Tags */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/90 to-transparent">
-                  <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 max-w-full">
-                    {[
-                      "Go",
-                      "MERN",
-                      "K8s",
-                      "Next.js",
-                      "Web3",
-                      "GenAI",
-                    ].map((tech) => (
-                      <span
-                        key={tech}
-                        className="bg-gray-800/80 backdrop-blur-md px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[8px] sm:text-[10px] text-gray-300 border border-gray-700 whitespace-nowrap"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+    {/* Card */}
+    <motion.div
+      whileHover={{
+        rotateX: 6,
+        rotateY: -6,
+        scale: 1.05,
+      }}
+      transition={{ type: "spring", stiffness: 120, damping: 12 }}
+      className="relative w-full h-full rounded-3xl overflow-hidden
+                 border border-white/10 bg-gray-900/80 backdrop-blur-xl
+                 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+    >
+      {/* Image */}
+      <Image
+        src="/p.png"
+        alt="Satyam Kumar"
+        fill
+        priority
+        className="object-cover opacity-90 group-hover:opacity-100
+                   group-hover:scale-110 transition duration-700 ease-out"
+      />
+
+      {/* Noise overlay (luxury feel) */}
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none" />
+
+      {/* Bottom gradient */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+      {/* Tech Stack */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileHover={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="absolute bottom-3 left-0 right-0 px-4"
+      >
+        <div className="flex flex-wrap justify-center gap-2">
+          {["Go", "MERN", "K8s", "Next.js", "Web3", "GenAI"].map((tech) => (
+            <motion.span
+              key={tech}
+              whileHover={{ scale: 1.1 }}
+              className="rounded-full px-3 py-1 text-[10px] sm:text-xs
+                         bg-white/10 backdrop-blur-md text-gray-200
+                         border border-white/20 shadow-sm"
+            >
+              {tech}
+            </motion.span>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Glass highlight */}
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-700" />
+    </motion.div>
+  </motion.div>
+</motion.div>
+
         </motion.div>
       </div>
     </section>
