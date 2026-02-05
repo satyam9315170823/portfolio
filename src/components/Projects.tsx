@@ -20,12 +20,12 @@ type Project = {
   tech: string[];
   live: string;
   repo: string;
-  image: string; // ✅ Added
+  image: string;
   featured?: boolean;
 };
 
 const projects: Project[] = [
-  // ⭐ FEATURED PROJECTS
+  // ⭐ FEATURED
   {
     title: "LeetCode Practice Platform",
     description:
@@ -61,7 +61,7 @@ const projects: Project[] = [
     featured: true,
   },
 
-  // OTHER PROJECTS
+  // OTHER
   {
     title: "GoLang REST API",
     description:
@@ -123,17 +123,17 @@ export default function Projects() {
             <motion.div
               key={project.title}
               whileHover={{ y: -8 }}
-              className="group relative h-[420px] rounded-2xl overflow-hidden border border-white/10"
+              className="group relative h-[420px] rounded-2xl overflow-hidden border border-white/10 bg-black"
             >
+              {/* Image */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                className="absolute inset-0 w-full h-full object-contain transition-all duration-500 group-hover:blur-md group-hover:scale-105 group-hover:brightness-50"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
-
-              <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+              {/* Content */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <span className="text-xs uppercase tracking-widest text-indigo-400 mb-2">
                   {project.category}
                 </span>
@@ -142,7 +142,7 @@ export default function Projects() {
                   {project.title}
                 </h4>
 
-                <p className="text-gray-300 text-sm mb-4">
+                <p className="text-gray-200 text-sm mb-4 max-w-md">
                   {project.description}
                 </p>
 
@@ -200,21 +200,20 @@ export default function Projects() {
               <motion.div
                 key={project.title}
                 whileHover={{ y: -5 }}
-                className="group relative h-64 rounded-xl overflow-hidden border border-gray-800"
+                className="group relative h-64 rounded-xl overflow-hidden border border-gray-800 bg-black"
               >
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="absolute inset-0 w-full h-full object-contain transition-all duration-500 group-hover:blur-md group-hover:scale-105 group-hover:brightness-50"
                 />
 
-                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition" />
-
-                <div className="absolute inset-0 p-5 flex flex-col justify-end translate-y-6 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-400">
+                <div className="absolute inset-0 p-5 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-400">
                   <h4 className="text-lg font-semibold text-white mb-2">
                     {project.title}
                   </h4>
-                  <p className="text-sm text-gray-300 mb-3 line-clamp-3">
+
+                  <p className="text-sm text-gray-200 mb-3 line-clamp-3">
                     {project.description}
                   </p>
 
@@ -225,7 +224,7 @@ export default function Projects() {
                     <a href={project.live} target="_blank" className="text-gray-300 hover:text-white">
                       Live
                     </a>
-                  </div>
+                    </div>
                 </div>
               </motion.div>
             ))}
