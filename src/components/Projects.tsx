@@ -3,10 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Updated type definition based on your request
 type Category = "All" | "Typescript" | "Golang" | "Web 3" | "Genai";
 
-// Updated categories array
 const categories: Category[] = [
   "All",
   "Typescript",
@@ -22,69 +20,77 @@ type Project = {
   tech: string[];
   live: string;
   repo: string;
+  image: string; // ✅ Added
   featured?: boolean;
 };
 
 const projects: Project[] = [
-  // ===== FEATURED PROJECTS =====
+  // ⭐ FEATURED PROJECTS
+  {
+    title: "LeetCode Practice Platform",
+    description:
+      "A LeetCode-style coding platform with problem filtering, submissions, execution results, and performance tracking dashboard.",
+    category: "Typescript",
+    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+    live: "#",
+    repo: "#",
+    image:
+      "https://res.cloudinary.com/dcgh3mayf/image/upload/v1770284069/Screenshot_2026-02-05_150032_losqyk.png",
+    featured: true,
+  },
   {
     title: "SaaS Platform",
     description:
       "Production-grade SaaS platform with authentication, payments, RBAC, dashboards, and scalable backend architecture.",
-    category: "Typescript", // Mapped Next.js to Typescript
+    category: "Typescript",
     tech: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Docker"],
     live: "#",
     repo: "#",
-    featured: true,
-  },
-  {
-    title: "Distributed Task Manager",
-    description:
-      "High-scale MERN application with background jobs, caching, real-time updates, and role-based access control.",
-    category: "Typescript", // Mapped MERN to Typescript
-    tech: ["MongoDB", "Express", "React", "Node.js", "Redis"],
-    live: "#",
-    repo: "#",
+    image: "/projects/saas.png",
     featured: true,
   },
   {
     title: "GenAI RAG System",
     description:
       "End-to-end RAG pipeline with embeddings, vector search, prompt orchestration, and observability.",
-    category: "Genai", // Mapped GenAI to Genai
+    category: "Genai",
     tech: ["Next.js", "LLMs", "Vector DB", "LangChain"],
     live: "#",
     repo: "#",
+    image: "/projects/rag.png",
     featured: true,
   },
 
-  // ===== OTHER PROJECTS =====
+  // OTHER PROJECTS
   {
     title: "GoLang REST API",
     description:
       "High-performance REST API built in Go with clean architecture, JWT authentication, and PostgreSQL.",
-    category: "Golang", // Mapped GoLang to Golang
+    category: "Golang",
     tech: ["Go", "PostgreSQL", "JWT", "Docker"],
     live: "#",
     repo: "#",
+    image: "/projects/golang-api.png",
   },
   {
     title: "Web3 Voting DApp",
     description:
       "Decentralized voting application using Solidity smart contracts on Ethereum.",
-    category: "Web 3", // Mapped Web3 to Web 3
+    category: "Web 3",
     tech: ["Solidity", "Ethereum", "Ethers.js", "Next.js"],
     live: "#",
     repo: "#",
+    image: "/projects/web3.png",
   },
   {
     title: "AI Chat Assistant",
     description:
       "LLM-powered chat assistant with context memory and embeddings.",
-    category: "Genai", // Mapped GenAI to Genai
+    category: "Genai",
     tech: ["LLMs", "Vector DB", "Next.js"],
     live: "#",
     repo: "#",
+    image: "/projects/ai-chat.png",
   },
 ];
 
@@ -98,274 +104,128 @@ export default function Projects() {
       : projects.filter((p) => !p.featured && p.category === active);
 
   return (
-    <section
-      id="projects"
-      className="
-        relative py-32 overflow-hidden
-       
-      "
-    >
-      {/* Background Gradients */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-900/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-900/10 blur-[120px] rounded-full" />
-      </div>
-
+    <section id="projects" className="relative py-32 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 z-10">
-        {/* ================= HEADER ================= */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="mb-20 space-y-4"
-        >
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-500">
-              Selected Projects
-            </span>
+
+        {/* HEADER */}
+        <div className="mb-20 space-y-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+            Selected Projects
           </h2>
-          <p className="text-gray-400 max-w-2xl text-lg leading-relaxed">
-            Carefully crafted systems focused on scalability, distributed
-            architectures, and real-world engineering challenges.
+          <p className="text-gray-400 max-w-2xl text-lg">
+            Real-world systems focused on scalability and engineering depth.
           </p>
-        </motion.div>
+        </div>
 
-        {/* ================= FEATURED PROJECTS ================= */}
-        <div className="mb-24">
-          <div className="flex items-center gap-4 mb-10">
-            <div className="h-px bg-gray-800 flex-1" />
-            <h3 className="text-xl font-medium text-gray-300 uppercase tracking-widest">
-              Featured Work
-            </h3>
-            <div className="h-px bg-gray-800 flex-1" />
-          </div>
+        {/* FEATURED PROJECTS */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-24">
+          {mainProjects.map((project) => (
+            <motion.div
+              key={project.title}
+              whileHover={{ y: -8 }}
+              className="group relative h-[420px] rounded-2xl overflow-hidden border border-white/10"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
 
-          <div className="grid lg:grid-cols-3 gap-6">
-            {mainProjects.map((project) => (
-              <motion.div
-                key={project.title}
-                whileHover={{ y: -5 }}
-                className="
-                  group relative flex flex-col justify-between
-                  bg-gray-900/40 backdrop-blur-md
-                  border border-white/5 hover:border-indigo-500/30
-                  rounded-2xl p-8
-                  transition-all duration-300 ease-out
-                "
-              >
-                {/* Internal Glow Effect */}
-                <div
-                  className="
-                    absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100
-                    bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))]
-                    from-indigo-500/10 via-transparent to-transparent
-                    transition-opacity duration-500
-                  "
-                />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
 
-                <div>
-                  <div className="flex justify-between items-start mb-4">
-                    <h4 className="text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors">
-                      {project.title}
-                    </h4>
-                    <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-indigo-300 bg-indigo-500/10 rounded-full border border-indigo-500/20">
-                      {project.category}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-10 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                <span className="text-xs uppercase tracking-widest text-indigo-400 mb-2">
+                  {project.category}
+                </span>
+
+                <h4 className="text-2xl font-bold text-white mb-3">
+                  {project.title}
+                </h4>
+
+                <p className="text-gray-300 text-sm mb-4">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="px-2 py-1 text-xs bg-white/10 border border-white/10 rounded-md text-gray-200"
+                    >
+                      {t}
                     </span>
-                  </div>
-
-                  <p className="text-gray-400 leading-relaxed text-sm mb-6">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="
-                          px-2.5 py-1 text-xs rounded-md
-                          bg-gray-800/50 border border-gray-700/50
-                          text-gray-300
-                          group-hover:bg-gray-800 group-hover:border-gray-600
-                          transition-colors
-                        "
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+                  ))}
                 </div>
 
-                <div className="flex items-center gap-5 pt-6 border-t border-gray-800/50">
-                  <a
-                    href={project.repo}
-                    target="_blank"
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group/link"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="transition-transform group-hover/link:-translate-y-0.5"
-                    >
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
-                    Source Code
+                <div className="flex gap-6">
+                  <a href={project.repo} target="_blank" className="text-sm text-white hover:text-indigo-400">
+                    Source Code →
                   </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group/link"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="transition-transform group-hover/link:-translate-y-0.5"
-                    >
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    Live Demo
+                  <a href={project.live} target="_blank" className="text-sm text-white hover:text-indigo-400">
+                    Live Demo →
                   </a>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* ================= FILTER TABS ================= */}
-        <div className="flex flex-col md:flex-row md:items-center gap-4 mb-12">
-          <span className="text-gray-500 text-sm font-medium whitespace-nowrap">
-         
-          </span>
-          <div className="flex flex-wrap gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActive(cat)}
-                className={`
-                  px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 border
-                  ${
-                    active === cat
-                      ? "bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.3)]"
-                      : "bg-transparent text-gray-400 border-gray-800 hover:border-gray-600 hover:text-gray-200"
-                  }
-                `}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+        {/* FILTER TABS */}
+        <div className="flex flex-wrap gap-3 mb-12">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`px-4 py-1.5 text-sm rounded-full border transition ${
+                active === cat
+                  ? "bg-white text-black border-white"
+                  : "text-gray-400 border-gray-700 hover:border-gray-500"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
 
-        {/* ================= OTHER PROJECTS ================= */}
+        {/* OTHER PROJECTS */}
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {otherProjects.map((project) => (
               <motion.div
                 key={project.title}
-                whileHover={{ y: -4 }}
-                className="
-                  group relative
-                  bg-black/40 backdrop-blur-sm
-                  border border-gray-800 hover:border-gray-600
-                  rounded-xl p-6
-                  transition-colors duration-300
-                "
+                whileHover={{ y: -5 }}
+                className="group relative h-64 rounded-xl overflow-hidden border border-gray-800"
               >
-                <div className="flex justify-between items-start mb-3">
-                  <h4 className="text-lg font-semibold text-gray-200 group-hover:text-white">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+
+                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition" />
+
+                <div className="absolute inset-0 p-5 flex flex-col justify-end translate-y-6 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-400">
+                  <h4 className="text-lg font-semibold text-white mb-2">
                     {project.title}
                   </h4>
-                  {/* Links Container */}
-                  <div className="flex gap-3">
-                    <a
-                      href={project.repo}
-                      target="_blank"
-                      title="View Code"
-                      className="text-gray-500 hover:text-white transition-colors"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                      </svg>
+                  <p className="text-sm text-gray-300 mb-3 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  <div className="flex gap-4 text-sm">
+                    <a href={project.repo} target="_blank" className="text-gray-300 hover:text-white">
+                      Code
                     </a>
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      title="Live Demo"
-                      className="text-gray-500 hover:text-white transition-colors"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                      </svg>
+                    <a href={project.live} target="_blank" className="text-gray-300 hover:text-white">
+                      Live
                     </a>
                   </div>
-                </div>
-
-                <p className="text-gray-500 text-sm mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.slice(0, 3).map((t) => (
-                    <span
-                      key={t}
-                      className="
-                        px-2 py-1 text-[10px] uppercase tracking-wider rounded
-                        bg-gray-900 border border-gray-800 text-gray-400
-                      "
-                    >
-                      {t}
-                    </span>
-                  ))}
-                  {project.tech.length > 3 && (
-                    <span className="px-2 py-1 text-[10px] text-gray-500">
-                      +{project.tech.length - 3}
-                    </span>
-                  )}
                 </div>
               </motion.div>
             ))}
