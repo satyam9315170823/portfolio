@@ -110,7 +110,7 @@ export default function Projects() {
         {/* HEADER */}
         <div className="mb-20 space-y-4">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
-            Selected Projects
+            Personal Projects
           </h2>
           <p className="text-gray-400 max-w-2xl text-lg">
             Real-world systems focused on scalability and engineering depth.
@@ -121,52 +121,58 @@ export default function Projects() {
         <div className="grid lg:grid-cols-3 gap-8 mb-24">
           {mainProjects.map((project) => (
             <motion.div
-              key={project.title}
-              whileHover={{ y: -8 }}
-              className="group relative h-[420px] rounded-2xl overflow-hidden border border-white/10 bg-black"
-            >
-              {/* Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-contain transition-all duration-500 group-hover:blur-md group-hover:scale-105 group-hover:brightness-50"
-              />
+  key={project.title}
+  whileHover={{ y: -8 }}
+  className="group relative h-[420px] rounded-2xl overflow-hidden border border-white/10 bg-black"
+>
+  {/* Image */}
+  <img
+    src={project.image}
+    alt={project.title}
+    className="absolute inset-0 w-full h-full object-contain transition-all duration-500 md:group-hover:blur-md md:group-hover:scale-105 md:group-hover:brightness-50"
+  />
 
-              {/* Content */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="text-xs uppercase tracking-widest text-indigo-400 mb-2">
-                  {project.category}
-                </span>
+  {/* Gradient for readability (always on mobile) */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500" />
 
-                <h4 className="text-2xl font-bold text-white mb-3">
-                  {project.title}
-                </h4>
+  {/* Content */}
+  <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end
+                  opacity-100 md:opacity-0 md:group-hover:opacity-100
+                  transition-opacity duration-500">
+    <span className="text-xs uppercase tracking-widest text-indigo-400 mb-2">
+      {project.category}
+    </span>
 
-                <p className="text-gray-200 text-sm mb-4 max-w-md">
-                  {project.description}
-                </p>
+    <h4 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3">
+      {project.title}
+    </h4>
 
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-1 text-xs bg-white/10 border border-white/10 rounded-md text-gray-200"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+    <p className="text-gray-200 text-sm mb-3 md:mb-4">
+      {project.description}
+    </p>
 
-                <div className="flex gap-6">
-                  <a href={project.repo} target="_blank" className="text-sm text-white hover:text-indigo-400">
-                    Source Code →
-                  </a>
-                  <a href={project.live} target="_blank" className="text-sm text-white hover:text-indigo-400">
-                    Live Demo →
-                  </a>
-                </div>
-              </div>
-            </motion.div>
+    <div className="flex flex-wrap gap-2 mb-4 md:mb-5">
+      {project.tech.map((t) => (
+        <span
+          key={t}
+          className="px-2 py-1 text-xs bg-white/10 border border-white/10 rounded-md text-gray-200"
+        >
+          {t}
+        </span>
+      ))}
+    </div>
+
+    <div className="flex gap-6 text-sm">
+      <a href={project.repo} target="_blank" className="text-white hover:text-indigo-400">
+        Source Code →
+      </a>
+      <a href={project.live} target="_blank" className="text-white hover:text-indigo-400">
+        Live Demo →
+      </a>
+    </div>
+  </div>
+</motion.div>
+
           ))}
         </div>
 
@@ -190,43 +196,40 @@ export default function Projects() {
         {/* OTHER PROJECTS */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {otherProjects.map((project) => (
-              <motion.div
-                key={project.title}
-                whileHover={{ y: -5 }}
-                className="group relative h-64 rounded-xl overflow-hidden border border-gray-800 bg-black"
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-contain transition-all duration-500 group-hover:blur-md group-hover:scale-105 group-hover:brightness-50"
-                />
+  key={project.title}
+  whileHover={{ y: -5 }}
+  className="group relative h-64 rounded-xl overflow-hidden border border-gray-800 bg-black"
+>
+  <img
+    src={project.image}
+    alt={project.title}
+    className="absolute inset-0 w-full h-full object-contain transition-all duration-500 md:group-hover:blur-md md:group-hover:scale-105 md:group-hover:brightness-50"
+  />
 
-                <div className="absolute inset-0 p-5 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                  <h4 className="text-lg font-semibold text-white mb-2">
-                    {project.title}
-                  </h4>
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400" />
 
-                  <p className="text-sm text-gray-200 mb-3 line-clamp-3">
-                    {project.description}
-                  </p>
+  <div className="absolute inset-0 p-4 flex flex-col justify-end
+                  opacity-100 md:opacity-0 md:group-hover:opacity-100
+                  transition-opacity duration-400">
+    <h4 className="text-base md:text-lg font-semibold text-white mb-1 md:mb-2">
+      {project.title}
+    </h4>
 
-                  <div className="flex gap-4 text-sm">
-                    <a href={project.repo} target="_blank" className="text-gray-300 hover:text-white">
-                      Code
-                    </a>
-                    <a href={project.live} target="_blank" className="text-gray-300 hover:text-white">
-                      Live
-                    </a>
-                    </div>
-                </div>
-              </motion.div>
+    <p className="text-xs md:text-sm text-gray-200 mb-2 md:mb-3 line-clamp-3">
+      {project.description}
+    </p>
+
+    <div className="flex gap-4 text-xs md:text-sm">
+      <a href={project.repo} target="_blank" className="text-gray-300 hover:text-white">
+        Code
+      </a>
+      <a href={project.live} target="_blank" className="text-gray-300 hover:text-white">
+        Live
+      </a>
+    </div>
+  </div>
+</motion.div>
+
             ))}
           </motion.div>
         </AnimatePresence>
