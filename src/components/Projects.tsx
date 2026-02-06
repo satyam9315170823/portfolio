@@ -125,17 +125,45 @@ export default function Projects() {
               />
 
               {/* TEXT ONLY ON DESKTOP */}
-              <div className="hidden md:flex absolute inset-0 p-8 flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="text-xs uppercase tracking-widest text-indigo-400 mb-2">
-                  {project.category}
-                </span>
-                <h4 className="text-2xl font-bold text-white mb-3">
-                  {project.title}
-                </h4>
-                <p className="text-gray-200 text-sm mb-4">
-                  {project.description}
-                </p>
-              </div>
+           {/* DESKTOP HOVER CONTENT */}
+<div className="hidden md:flex absolute inset-0 p-8 flex-col justify-end
+                opacity-0 group-hover:opacity-100
+                bg-gradient-to-t from-black/80 via-black/50 to-transparent
+                transition-all duration-500">
+
+  <span className="text-xs uppercase tracking-widest text-indigo-400 mb-2">
+    {project.category}
+  </span>
+
+  <h4 className="text-2xl font-bold text-white mb-3">
+    {project.title}
+  </h4>
+
+  <p className="text-gray-200 text-sm mb-4 max-w-md">
+    {project.description}
+  </p>
+
+  <div className="flex flex-wrap gap-2 mb-5">
+    {project.tech.map((t) => (
+      <span
+        key={t}
+        className="px-2 py-1 text-xs bg-white/10 border border-white/10 rounded-md text-gray-200"
+      >
+        {t}
+      </span>
+    ))}
+  </div>
+
+  <div className="flex gap-6 text-sm">
+    <a href={project.repo} target="_blank" className="text-white hover:text-indigo-400">
+      Source Code →
+    </a>
+    <a href={project.live} target="_blank" className="text-white hover:text-indigo-400">
+      Live Demo →
+    </a>
+  </div>
+</div>
+
             </motion.div>
           ))}
         </div>
@@ -173,11 +201,41 @@ export default function Projects() {
               />
 
               {/* TEXT ONLY ON DESKTOP */}
-              <div className="hidden md:flex absolute inset-0 p-5 flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-                <h4 className="text-lg font-semibold text-white mb-2">
-                  {project.title}
-                </h4>
-              </div>
+             {/* DESKTOP HOVER CONTENT */}
+<div className="hidden md:flex absolute inset-0 p-5 flex-col justify-end
+                opacity-0 group-hover:opacity-100
+                bg-gradient-to-t from-black/80 via-black/50 to-transparent
+                transition-all duration-400">
+
+  <h4 className="text-lg font-semibold text-white mb-2">
+    {project.title}
+  </h4>
+
+  <p className="text-sm text-gray-200 mb-3 line-clamp-3">
+    {project.description}
+  </p>
+
+  <div className="flex flex-wrap gap-2 mb-4">
+    {project.tech.slice(0, 3).map((t) => (
+      <span
+        key={t}
+        className="px-2 py-1 text-[10px] bg-white/10 border border-white/10 rounded text-gray-200"
+      >
+        {t}
+      </span>
+    ))}
+  </div>
+
+  <div className="flex gap-4 text-sm">
+    <a href={project.repo} target="_blank" className="text-gray-300 hover:text-white">
+      Code
+    </a>
+    <a href={project.live} target="_blank" className="text-gray-300 hover:text-white">
+      Live
+    </a>
+  </div>
+</div>
+
             </motion.div>
           ))}
         </div>
