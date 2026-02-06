@@ -5,13 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 type Category = "All" | "Typescript" | "Golang" | "Web 3" | "Genai";
 
-const categories: Category[] = [
-  "All",
-  "Typescript",
-  "Golang",
-  "Web 3",
-  "Genai",
-];
+const categories: Category[] = ["All", "Typescript", "Golang", "Web 3", "Genai"];
 
 type Project = {
   title: string;
@@ -93,6 +87,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   const [active, setActive] = useState<Category>("All");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const mainProjects = projects.filter((p) => p.featured);
   const otherProjects =
@@ -120,7 +115,8 @@ export default function Projects() {
             <motion.div
               key={project.title}
               whileHover={{ y: -8 }}
-              className="group relative h-[420px] rounded-2xl overflow-hidden border border-white/10 bg-black"
+              onClick={() => setSelectedProject(project)}
+              className="group relative h-[420px] rounded-2xl overflow-hidden border border-white/10 bg-black cursor-pointer"
             >
               <img
                 src={project.image}
@@ -134,27 +130,12 @@ export default function Projects() {
                 <span className="text-xs uppercase tracking-widest text-indigo-400 mb-2">
                   {project.category}
                 </span>
-
                 <h4 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3">
                   {project.title}
                 </h4>
-
                 <p className="text-gray-200 text-sm mb-3 md:mb-4">
                   {project.description}
                 </p>
-
-                <div className="flex flex-wrap gap-2 mb-4 md:mb-5">
-                  {project.tech.map((t) => (
-                    <span key={t} className="px-2 py-1 text-xs bg-white/10 border border-white/10 rounded-md text-gray-200">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-6 text-sm">
-                  <a href={project.repo} target="_blank" className="text-white hover:text-indigo-400">Source Code →</a>
-                  <a href={project.live} target="_blank" className="text-white hover:text-indigo-400">Live Demo →</a>
-                </div>
               </div>
             </motion.div>
           ))}
@@ -167,7 +148,9 @@ export default function Projects() {
               key={cat}
               onClick={() => setActive(cat)}
               className={`px-4 py-1.5 text-sm rounded-full border transition ${
-                active === cat ? "bg-white text-black border-white" : "text-gray-400 border-gray-700 hover:border-gray-500"
+                active === cat
+                  ? "bg-white text-black border-white"
+                  : "text-gray-400 border-gray-700 hover:border-gray-500"
               }`}
             >
               {cat}
@@ -188,7 +171,8 @@ export default function Projects() {
               <motion.div
                 key={project.title}
                 whileHover={{ y: -5 }}
-                className="group relative h-64 rounded-xl overflow-hidden border border-gray-800 bg-black"
+                onClick={() => setSelectedProject(project)}
+                className="group relative h-64 rounded-xl overflow-hidden border border-gray-800 bg-black cursor-pointer"
               >
                 <img
                   src={project.image}
@@ -202,21 +186,70 @@ export default function Projects() {
                   <h4 className="text-base md:text-lg font-semibold text-white mb-1 md:mb-2">
                     {project.title}
                   </h4>
-
-                  <p className="text-xs md:text-sm text-gray-200 mb-2 md:mb-3 line-clamp-3">
-                    {project.description}
-                  </p>
-
-                  <div className="flex gap-4 text-xs md:text-sm">
-                    <a href={project.repo} target="_blank" className="text-gray-300 hover:text-white">Code</a>
-                    <a href={project.live} target="_blank" className="text-gray-300 hover:text-white">Live</a>
-                  </div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* MODAL */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-zinc-900 rounded-2xl max-w-3xl w-full overflow-hidden border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-64 object-contain bg-black"
+              />
+
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {selectedProject.title}
+                </h3>
+
+                <p className="text-gray-400 mb-4">
+                  {selectedProject.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {selectedProject.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 text-xs bg-white/10 border border-white/10 rounded-md text-gray-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-6">
+                  <a href={selectedProject.repo} target="_blank" className="text-white hover:text-indigo-400">
+                    Source Code →
+                  </a>
+                  <a href={selectedProject.live} target="_blank" className="text-white hover:text-indigo-400">
+                    Live Demo →
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
