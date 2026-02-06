@@ -124,16 +124,15 @@ export default function Projects() {
                 className="absolute inset-0 w-full h-full object-contain transition-all duration-500 md:group-hover:blur-md md:group-hover:scale-105 md:group-hover:brightness-50"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500">
+              {/* TEXT ONLY ON DESKTOP */}
+              <div className="hidden md:flex absolute inset-0 p-8 flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <span className="text-xs uppercase tracking-widest text-indigo-400 mb-2">
                   {project.category}
                 </span>
-                <h4 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3">
+                <h4 className="text-2xl font-bold text-white mb-3">
                   {project.title}
                 </h4>
-                <p className="text-gray-200 text-sm mb-3 md:mb-4">
+                <p className="text-gray-200 text-sm mb-4">
                   {project.description}
                 </p>
               </div>
@@ -158,39 +157,30 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* OTHER PROJECTS */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {otherProjects.map((project) => (
-              <motion.div
-                key={project.title}
-                whileHover={{ y: -5 }}
-                onClick={() => setSelectedProject(project)}
-                className="group relative h-64 rounded-xl overflow-hidden border border-gray-800 bg-black cursor-pointer"
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-contain transition-all duration-500 md:group-hover:blur-md md:group-hover:scale-105 md:group-hover:brightness-50"
-                />
+        {/* OTHER */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {otherProjects.map((project) => (
+            <motion.div
+              key={project.title}
+              whileHover={{ y: -5 }}
+              onClick={() => setSelectedProject(project)}
+              className="group relative h-64 rounded-xl overflow-hidden border border-gray-800 bg-black cursor-pointer"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-contain transition-all duration-500 md:group-hover:blur-md md:group-hover:scale-105 md:group-hover:brightness-50"
+              />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400" />
-
-                <div className="absolute inset-0 p-4 flex flex-col justify-end opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-400">
-                  <h4 className="text-base md:text-lg font-semibold text-white mb-1 md:mb-2">
-                    {project.title}
-                  </h4>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+              {/* TEXT ONLY ON DESKTOP */}
+              <div className="hidden md:flex absolute inset-0 p-5 flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                <h4 className="text-lg font-semibold text-white mb-2">
+                  {project.title}
+                </h4>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       {/* MODAL */}
@@ -207,7 +197,6 @@ export default function Projects() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
               className="bg-zinc-900 rounded-2xl max-w-3xl w-full overflow-hidden border border-white/10"
               onClick={(e) => e.stopPropagation()}
             >
@@ -221,29 +210,19 @@ export default function Projects() {
                 <h3 className="text-2xl font-bold text-white mb-2">
                   {selectedProject.title}
                 </h3>
-
                 <p className="text-gray-400 mb-4">
                   {selectedProject.description}
                 </p>
-
                 <div className="flex flex-wrap gap-2 mb-6">
                   {selectedProject.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-xs bg-white/10 border border-white/10 rounded-md text-gray-200"
-                    >
+                    <span key={tech} className="px-3 py-1 text-xs bg-white/10 border border-white/10 rounded-md text-gray-200">
                       {tech}
                     </span>
                   ))}
                 </div>
-
                 <div className="flex gap-6">
-                  <a href={selectedProject.repo} target="_blank" className="text-white hover:text-indigo-400">
-                    Source Code →
-                  </a>
-                  <a href={selectedProject.live} target="_blank" className="text-white hover:text-indigo-400">
-                    Live Demo →
-                  </a>
+                  <a href={selectedProject.repo} target="_blank" className="text-white hover:text-indigo-400">Source Code →</a>
+                  <a href={selectedProject.live} target="_blank" className="text-white hover:text-indigo-400">Live Demo →</a>
                 </div>
               </div>
             </motion.div>
