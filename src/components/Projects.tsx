@@ -111,13 +111,20 @@ export default function Projects() {
         {/* FEATURED */}
         <div className="grid lg:grid-cols-3 gap-10 mb-24">
           {mainProjects.map((project) => (
-            <motion.div
+           <motion.div
   key={project.title}
-  whileHover={{ y: -8 }}
+  whileHover={{ y: -10 }}
   onClick={() => setSelectedProject(project)}
   className="group cursor-pointer"
 >
-  <div className="rounded-2xl overflow-hidden border border-white/10 bg-zinc-900">
+  <div className="
+    relative rounded-2xl overflow-hidden
+    bg-gradient-to-b from-zinc-900 to-zinc-950
+    border border-white/10
+    shadow-lg shadow-black/40
+    transition-all duration-500
+    md:hover:shadow-indigo-500/20 md:hover:border-indigo-400/30
+  ">
 
     {/* IMAGE AREA */}
     <div className="relative bg-black">
@@ -127,44 +134,48 @@ export default function Projects() {
         className="w-full aspect-[16/10] object-contain transition-all duration-500 md:group-hover:blur-md md:group-hover:scale-105 md:group-hover:brightness-50"
       />
 
-      {/* DESKTOP HOVER OVERLAY */}
+      {/* HOVER GLOW */}
+      <div className="absolute inset-0 opacity-0 md:group-hover:opacity-100 transition duration-500 bg-gradient-to-tr from-indigo-500/10 via-transparent to-transparent" />
+
+      {/* DESKTOP HOVER CONTENT */}
       <div className="hidden md:flex absolute inset-0 z-10 p-8 flex-col justify-end
                       opacity-0 group-hover:opacity-100
-                      bg-gradient-to-t from-black/80 via-black/50 to-transparent
+                      bg-gradient-to-t from-black/80 via-black/40 to-transparent
                       transition-all duration-500">
 
         <span className="text-xs uppercase tracking-widest text-indigo-400 mb-2">
           {project.category}
         </span>
 
-        <p className="text-gray-200 text-sm mb-4 max-w-md">
+        <p className="text-gray-200 text-sm mb-4 max-w-md leading-relaxed">
           {project.description}
         </p>
 
         <div className="flex flex-wrap gap-2 mb-5">
           {project.tech.map((t) => (
-            <span key={t} className="px-2 py-1 text-xs bg-white/10 border border-white/10 rounded-md text-gray-200">
+            <span key={t} className="px-2 py-1 text-xs bg-white/10 backdrop-blur border border-white/10 rounded-md text-gray-200">
               {t}
             </span>
           ))}
         </div>
 
         <div className="flex gap-6 text-sm">
-          <a href={project.repo} target="_blank" className="text-white hover:text-indigo-400">Source Code →</a>
-          <a href={project.live} target="_blank" className="text-white hover:text-indigo-400">Live Demo →</a>
+          <a href={project.repo} target="_blank" className="text-white hover:text-indigo-400 transition">Source Code →</a>
+          <a href={project.live} target="_blank" className="text-white hover:text-indigo-400 transition">Live Demo →</a>
         </div>
       </div>
     </div>
 
     {/* TITLE BAR */}
-    <div className="px-5 py-4 border-t border-white/5 bg-zinc-900">
-      <h4 className="text-lg font-semibold text-white">
+    <div className="px-6 py-5 border-t border-white/5 bg-gradient-to-r from-zinc-900 to-zinc-950">
+      <h4 className="text-lg font-semibold text-white group-hover:text-indigo-300 transition-colors">
         {project.title}
       </h4>
     </div>
 
   </div>
 </motion.div>
+
 
           ))}
         </div>
@@ -189,13 +200,20 @@ export default function Projects() {
         {/* OTHER PROJECTS */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {otherProjects.map((project) => (
-          <motion.div
+        <motion.div
   key={project.title}
-  whileHover={{ y: -5 }}
+  whileHover={{ y: -6 }}
   onClick={() => setSelectedProject(project)}
   className="group cursor-pointer"
 >
-  <div className="rounded-xl overflow-hidden border border-gray-800 bg-zinc-900">
+  <div className="
+    relative rounded-xl overflow-hidden
+    bg-gradient-to-b from-zinc-900 to-zinc-950
+    border border-white/5
+    shadow-md shadow-black/40
+    transition-all duration-500
+    md:hover:border-indigo-400/30 md:hover:shadow-indigo-500/10
+  ">
 
     {/* IMAGE AREA */}
     <div className="relative bg-black">
@@ -205,10 +223,13 @@ export default function Projects() {
         className="w-full aspect-[16/10] object-contain transition-all duration-500 md:group-hover:blur-md md:group-hover:scale-105 md:group-hover:brightness-50"
       />
 
+      {/* SOFT GLOW */}
+      <div className="absolute inset-0 opacity-0 md:group-hover:opacity-100 transition duration-500 bg-gradient-to-tr from-indigo-500/10 via-transparent to-transparent" />
+
       {/* DESKTOP HOVER DETAILS */}
       <div className="hidden md:flex absolute inset-0 z-10 p-5 flex-col justify-end
                       opacity-0 group-hover:opacity-100
-                      bg-gradient-to-t from-black/80 via-black/50 to-transparent
+                      bg-gradient-to-t from-black/80 via-black/40 to-transparent
                       transition-all duration-400">
 
         <p className="text-sm text-gray-200 mb-3 line-clamp-3">
@@ -224,21 +245,22 @@ export default function Projects() {
         </div>
 
         <div className="flex gap-4 text-sm">
-          <a href={project.repo} target="_blank" className="text-gray-300 hover:text-white">Code</a>
-          <a href={project.live} target="_blank" className="text-gray-300 hover:text-white">Live</a>
+          <a href={project.repo} target="_blank" className="text-gray-300 hover:text-white transition">Code</a>
+          <a href={project.live} target="_blank" className="text-gray-300 hover:text-white transition">Live</a>
         </div>
       </div>
     </div>
 
     {/* TITLE BAR */}
-    <div className="px-4 py-3 border-t border-white/5 bg-zinc-900">
-      <h4 className="text-sm font-medium text-white">
+    <div className="px-4 py-3 border-t border-white/5 bg-gradient-to-r from-zinc-900 to-zinc-950">
+      <h4 className="text-sm font-medium text-white group-hover:text-indigo-300 transition-colors">
         {project.title}
       </h4>
     </div>
 
   </div>
 </motion.div>
+
 
           ))}
         </div>
