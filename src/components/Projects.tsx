@@ -52,16 +52,7 @@ const projects: Project[] = [
     image: "/projects/rag.png",
     featured: true,
   },
-  {
-    title: "GoLang REST API",
-    description:
-      "High-performance REST API built in Go with clean architecture, JWT authentication, and PostgreSQL.",
-    category: "Rust",
-    tech: ["Go", "PostgreSQL", "JWT", "Docker"],
-    live: "#",
-    repo: "#",
-    image: "/projects/golang-api.png",
-  },
+ 
   {
     title: "Web3 Voting DApp",
     description:
