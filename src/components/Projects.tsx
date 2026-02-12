@@ -56,7 +56,7 @@ const projects: Project[] = [
     title: "GoLang REST API",
     description:
       "High-performance REST API built in Go with clean architecture, JWT authentication, and PostgreSQL.",
-    category: "Golang",
+    category: "Rust",
     tech: ["Go", "PostgreSQL", "JWT", "Docker"],
     live: "#",
     repo: "#",
