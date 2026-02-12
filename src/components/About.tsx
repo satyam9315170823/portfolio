@@ -7,7 +7,7 @@ const philosophies = [
   {
     id: "01",
     title: "Systems Before Features",
-    desc: "I design systems, not just endpoints. Clear service boundaries, explicit contracts, and ownership-first architecture guide every decision across TypeScript, Go, and Rust.",
+    desc: "I design systems, not just endpoints. Clear service boundaries, explicit contracts, and ownership-first architecture guide every decision across TypeScript and Rust.",
     icon: <Layers className="w-5 h-5" />,
     colSpan: "md:col-span-2",
   },
