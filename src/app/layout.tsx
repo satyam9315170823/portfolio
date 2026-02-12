@@ -24,11 +24,11 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Satyam Kumar | Full Stack Developer",
   description:
-    "Full Stack Developer skilled in  MERN, Rust, Web3, DevOps, Gen AI & Next.js",
+    "Full Stack Developer skilled in  MERN , Golang ,Rust, Web3, DevOps, Gen AI & Next.js",
   keywords: [
     "Full Stack Developer",
     "Next.js",
-    
+    "Golang",
     "MERN",
     "Web3",
     "DevOps",
@@ -39,14 +39,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Satyam Kumar | Portfolio",
     description:
-      "Building scalable web apps using  MERN, Web3, DevOps & Gen AI",
+      "Building scalable web apps using Golang, MERN, Web3, DevOps & Gen AI",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Satyam Kumar | Full Stack Developer",
     description:
-      "Full Stack Developer | Next.js | Typescript | Web3 | Gen AI",
+      "Full Stack Developer | Next.js | Golang | Typescript | Web3 | Gen AI",
   },
 };
 
