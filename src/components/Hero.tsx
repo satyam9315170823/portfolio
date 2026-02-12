@@ -66,6 +66,7 @@ export default function Hero() {
               engineer building scalable web and backend systems with{" "}
               <span className="text-white">Typescript</span>,{" "}
               <span className="text-white">Next.js</span>, and{" "}
+              <span className="text-white">Golang</span>, and{" "}
               <span className="text-white">MERN</span>. I ship production-ready
               platforms using <span className="text-white">DevOps</span> and work
               on <span className="text-white">Web3</span> &{" "}
@@ -141,7 +142,7 @@ export default function Hero() {
       {/* Tech stack */}
       <div className="absolute bottom-3 left-0 right-0 px-4">
         <div className="flex flex-wrap justify-center gap-2">
-          {["RUST", "MERN", "K8s", "Next.js", "Web3", "GenAI"].map((tech) => (
+          {["RUST", "MERN", "K8s", "Next.js","Golang", "Web3", "GenAI"].map((tech) => (
             <span
               key={tech}
               className="rounded-full px-3 py-1
