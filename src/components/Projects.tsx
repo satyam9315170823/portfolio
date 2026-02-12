@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Category = "All" | "Typescript" | "Web 3" | "Genai";
-const categories: Category[] = ["All", "Typescript", "Web 3", "Genai"];
+type Category = "All" | "Typescript" | "Web 3" | "Genai" | "Golang";
+const categories: Category[] = ["All", "Typescript", "Web 3","Golang" ,"Genai"];
 
 type Project = {
   title: string;
