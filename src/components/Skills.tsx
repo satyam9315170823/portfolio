@@ -20,7 +20,7 @@ const skillGroups = [
     accent: "from-blue-400/30 via-blue-500/10 to-transparent",
     color: "text-blue-400",
     icon: <Code2 className="w-5 h-5" />,
-    skills: [ "TypeScript", "JavaScript","Golang", "Rust", "Python", "C++", "Solidity"],
+    skills: [ "TypeScript", "JavaScript", "Rust", "Python", "C++", "Solidity"],
   },
   {
     title: "Frontend",
@@ -34,7 +34,7 @@ const skillGroups = [
     accent: "from-emerald-400/30 via-emerald-500/10 to-transparent",
     color: "text-emerald-400",
     icon: <Server className="w-5 h-5" />,
-    skills: ["Node.js", "Express", "REST", "Rabbit MQ","Golang","Kafka", "tRPC"],
+    skills: ["Node.js", "Express", "Rabbit MQ","Kafka", "tRPC"],
   },
   {
     title: "Databases",
