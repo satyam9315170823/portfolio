@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Category = "All" | "Typescript" | "Web 3" | "Genai" | "Golang";
-const categories: Category[] = ["All", "Typescript", "Web 3","Golang" ,"Genai"];
+type Category = "All" | "Typescript" | "Web 3" | "Genai" ;
+const categories: Category[] = ["All", "Typescript", "Web 3" ,"Genai"];
 
 type Project = {
   title: string;
@@ -28,7 +28,7 @@ const projects: Project[] = [
     repo: "https://github.com/satyamsingh9315170823/webwallet",
     image:
       "https://res.cloudinary.com/dcgh3mayf/image/upload/v1771484818/Screenshot_2026-02-19_123345_to8p55.png",
-    featured: true,
+    
   },
   {
     title: "SaaS Platform",
