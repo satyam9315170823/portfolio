@@ -5,9 +5,9 @@ import { Github, Linkedin, Twitter } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const socials = [
-  { icon: Github, href: "https://github.com/yourname", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/yourname", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com/yourname", label: "Twitter" },
+  { icon: Github, href: "https://github.com/satyamsingh83840", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/satyam-kumar-8b054b400", label: "LinkedIn" },
+  { icon: Twitter, href: "https://x.com/satyamsingh8384", label: "Twitter" },
 ];
 
 export default function Footer() {
