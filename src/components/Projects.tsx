@@ -22,7 +22,7 @@ const projects: Project[] = [
     title: "Web Based HD Wallet",
     description:
       "Web3 Wallets is a learning project that demonstrates how HD wallets work internally using modern crypto libraries.",
-    tech: ["React.js", "Solana","Ethereum"],
+    tech: ["Next.js", "Solana"],
      category: "Web 3",
     live: "https://solana-wallet-virid.vercel.app",
     repo: "https://github.com/satyamsingh83840/solana-wallet",
