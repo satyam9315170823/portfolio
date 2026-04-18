@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Category = "All" | "Typescript" | "Web 3" | "Genai" ;
-const categories: Category[] = ["All", "Typescript", "Web 3" ,"Genai"];
+type Category = "All" | "Typescript" | "Web 3" | "Genai" | "Golang" ;
+const categories: Category[] = ["All", "Typescript", "Web 3" ,"Genai","Golang"];
 
 type Project = {
   title: string;
@@ -24,10 +24,10 @@ const projects: Project[] = [
       "Web3 Wallets is a learning project that demonstrates how HD wallets work internally using modern crypto libraries.",
     tech: ["React.js", "Solana","Ethereum"],
      category: "Web 3",
-    live: "https://webwallet-roan.vercel.app/",
-    repo: "https://github.com/satyamsingh9315170823/webwallet",
+    live: "https://solana-wallet-virid.vercel.app",
+    repo: "https://github.com/satyamsingh83840/solana-wallet",
     image:
-      "https://res.cloudinary.com/dcgh3mayf/image/upload/v1771484818/Screenshot_2026-02-19_123345_to8p55.png",
+      "https://res.cloudinary.com/duoipkq1z/image/upload/v1776507292/Screenshot_2026-04-18_at_3.42.00_PM_wwljms.png",
     
   },
   {
