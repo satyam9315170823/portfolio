@@ -34,7 +34,7 @@ const skillGroups = [
     accent: "from-emerald-400/30 via-emerald-500/10 to-transparent",
     color: "text-emerald-400",
     icon: <Server className="w-5 h-5" />,
-    skills: ["Node.js", "Express", "Rabbit MQ","Kafka", "tRPC"],
+    skills: ["Node.js","Golang","Rust", "Express", "Rabbit MQ","Kafka", "tRPC"],
   },
   {
     title: "Databases",
@@ -56,8 +56,7 @@ const skillGroups = [
     color: "text-rose-400",
     icon: <Cpu className="w-5 h-5" />,
     skills: [
-      "Ethereum",
-      "Solidity",
+      "solana"
       "Smart Contracts",
       "LangChain",
       "LangGraph",
