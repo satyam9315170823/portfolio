@@ -24,15 +24,15 @@ export default function Contact() {
       id: "email",
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
-      value: "satyamsingh9315170823@gmail.com",
+      value: "satyamsingh8384@gmail.com",
       display: "satyamsingh...gmail.com",
     },
     {
       id: "phone",
       icon: <Phone className="w-5 h-5" />,
       label: "Phone",
-      value: "(+91) 9315170823",
-      display: "+91 9315170823",
+      value: "(+91) 8384034689",
+      display: "+91 8384034689",
     },
   ];
 
