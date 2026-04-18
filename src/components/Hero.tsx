@@ -65,7 +65,7 @@ export default function Hero() {
               I’m <strong className="text-white">Satyam Kumar</strong>, a full-stack
               engineer building scalable web and backend systems with{" "}
               <span className="text-white">Typescript</span>,{" "}
-              <span className="text-white">Next.js</span>, and{" "} <span className="text-white">Golang</span>, and{" "}
+              <span className="text-white">Next.js</span>, <span className="text-white">Golang</span>, and{" "}
               <span className="text-white">MERN</span>. I ship production-ready
               platforms using <span className="text-white">DevOps</span> and work
               on <span className="text-white">Web3</span> &{" "}
