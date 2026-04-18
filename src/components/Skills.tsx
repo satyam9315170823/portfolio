@@ -20,7 +20,7 @@ const skillGroups = [
     accent: "from-blue-400/30 via-blue-500/10 to-transparent",
     color: "text-blue-400",
     icon: <Code2 className="w-5 h-5" />,
-    skills: [ "TypeScript", "JavaScript", "Rust", "Python", "C++", "Solidity"],
+    skills: [ "TypeScript", "JavaScript", "Rust", "Python", "C++","java", "Golang"],
   },
   {
     title: "Frontend",
