@@ -56,7 +56,7 @@ const skillGroups = [
     color: "text-rose-400",
     icon: <Cpu className="w-5 h-5" />,
     skills: [
-      "solana"
+      "solana",
       "Smart Contracts",
       "LangChain",
       "LangGraph",
