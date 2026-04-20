@@ -62,7 +62,7 @@ const projects: Project[] = [
     live: "https://web3-portfolio-git-main-satyamsingh83840s-projects.vercel.app/",
     repo: "https://github.com/satyamsingh83840/web3-portfolio",
     image: "https://res.cloudinary.com/dcgh3mayf/image/upload/v1776713079/Screenshot_2026-04-21_at_12.52.46_AM_ysf4mk.png",
-    featured: true,
+    
   },
   {
     title: "AI Chat Assistant",
