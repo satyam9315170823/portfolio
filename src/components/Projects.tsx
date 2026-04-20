@@ -30,17 +30,7 @@ const projects: Project[] = [
       "https://res.cloudinary.com/duoipkq1z/image/upload/v1776507292/Screenshot_2026-04-18_at_3.42.00_PM_wwljms.png",
     
   },
-  {
-    title: "Solana Web-3 Portfolio",
-    description:
-      "Implemented wallet adapter and created a web 3 solana portfolio website",
-    category: "Web 3",
-    tech: ["React.js", "Solana"],
-    live: "https://web3-portfolio-git-main-satyamsingh83840s-projects.vercel.app/",
-    repo: "https://github.com/satyamsingh83840/web3-portfolio",
-    image: "https://res.cloudinary.com/dcgh3mayf/image/upload/v1776713079/Screenshot_2026-04-21_at_12.52.46_AM_ysf4mk.png",
-    featured: true,
-  },
+  
   {
     title: "GenAI RAG System",
     description:
@@ -62,6 +52,17 @@ const projects: Project[] = [
     live: "#",
     repo: "#",
     image: "/projects/web3.png",
+  },
+  {
+    title: "Solana Web-3 Portfolio",
+    description:
+      "Implemented wallet adapter and created a web 3 solana portfolio website",
+    category: "Web 3",
+    tech: ["React.js", "Solana"],
+    live: "https://web3-portfolio-git-main-satyamsingh83840s-projects.vercel.app/",
+    repo: "https://github.com/satyamsingh83840/web3-portfolio",
+    image: "https://res.cloudinary.com/dcgh3mayf/image/upload/v1776713079/Screenshot_2026-04-21_at_12.52.46_AM_ysf4mk.png",
+    featured: true,
   },
   {
     title: "AI Chat Assistant",
