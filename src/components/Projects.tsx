@@ -50,7 +50,7 @@ const projects: Project[] = [
       "Implemented wallet adapter and created a web 3 solana portfolio website",
     category: "Web 3",
     tech: ["React.js", "Solana"],
-    live: "https://web3-portfolio-git-main-satyamsingh83840s-projects.vercel.app/",
+    live: "https://web3-portfolio-kappa-steel.vercel.app/",
     repo: "https://github.com/satyamsingh83840/web3-portfolio",
     image: "https://res.cloudinary.com/dcgh3mayf/image/upload/v1776713079/Screenshot_2026-04-21_at_12.52.46_AM_ysf4mk.png",
     
