@@ -43,16 +43,7 @@ const projects: Project[] = [
     featured: true,
   },
  
-  {
-    title: "Web3 Voting DApp",
-    description:
-      "Decentralized voting application using Solidity smart contracts on Ethereum.",
-    category: "Web 3",
-    tech: ["Solidity", "Ethereum", "Ethers.js", "Next.js"],
-    live: "#",
-    repo: "#",
-    image: "/projects/web3.png",
-  },
+  
   {
     title: "Solana Web-3 Portfolio",
     description:
