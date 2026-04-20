@@ -31,14 +31,14 @@ const projects: Project[] = [
     
   },
   {
-    title: "SaaS Platform",
+    title: "Solana Web-3 Portfolio",
     description:
-      "Production-grade SaaS platform with authentication, payments, RBAC, dashboards, and scalable backend architecture.",
+      "Implemented wallet adapter and created a web 3 solana portfolio website",
     category: "Typescript",
-    tech: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Docker"],
-    live: "#",
-    repo: "#",
-    image: "/projects/saas.png",
+    tech: ["React.js", "Solana"],
+    live: "https://web3-portfolio-git-main-satyamsingh83840s-projects.vercel.app/",
+    repo: "https://github.com/satyamsingh83840/web3-portfolio",
+    image: "https://res.cloudinary.com/dcgh3mayf/image/upload/v1776713079/Screenshot_2026-04-21_at_12.52.46_AM_ysf4mk.png",
     featured: true,
   },
   {
