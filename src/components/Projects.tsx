@@ -34,7 +34,7 @@ const projects: Project[] = [
     title: "Solana Web-3 Portfolio",
     description:
       "Implemented wallet adapter and created a web 3 solana portfolio website",
-    category: "Typescript",
+    category: "Web 3",
     tech: ["React.js", "Solana"],
     live: "https://web3-portfolio-git-main-satyamsingh83840s-projects.vercel.app/",
     repo: "https://github.com/satyamsingh83840/web3-portfolio",
