@@ -24,7 +24,7 @@ export default function Contact() {
       id: "email",
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
-      value: "satyamsingh8384@gmail.com",
+      value: "satyamsingh83840@gmail.com",
       display: "satyamsingh...gmail.com",
     },
     {
