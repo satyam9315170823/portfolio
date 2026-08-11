@@ -47,7 +47,7 @@ const projects: Project[] = [
   title: "TaskFlow",
   description:
     "Production-ready task management platform with role-based access, PostgreSQL persistence, Redis caching, BullMQ background jobs, and a scalable Express.js API.",
-  category: "Full Stack",
+  category: "Typescript",
   tech: [
     "Next.js",
     "TypeScript",
