@@ -43,6 +43,26 @@ const projects: Project[] = [
     featured: true,
   },
  
+{
+  title: "TaskFlow",
+  description:
+    "Production-ready task management platform with role-based access, PostgreSQL persistence, Redis caching, BullMQ background jobs, and a scalable Express.js API.",
+  category: "Full Stack",
+  tech: [
+    "Next.js",
+    "TypeScript",
+    "Express.js",
+    "PostgreSQL",
+    "Redis",
+    "BullMQ",
+  ],
+  live: "#",
+  repo: "#",
+  image: "https://x.com/satyamsingh8384/status/2087220604231623006/photo/1",
+  featured: true,
+},
+
+
   
   {
     title: "Solana Web-3 Portfolio",
