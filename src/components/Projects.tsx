@@ -58,7 +58,7 @@ const projects: Project[] = [
   ],
   live: "#",
   repo: "#",
-  image: "https://x.com/satyamsingh8384/status/2087220604231623006/photo/1",
+  image: "https://res.cloudinary.com/dcgh3mayf/image/upload/v1786467853/Screenshot_2026-08-11_at_10.16.55_PM_opgapw.png",
   featured: true,
 },
 
